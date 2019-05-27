@@ -236,14 +236,6 @@ let routes = [
         meta: { validate: ['guest'] },
         children: [
             {
-                path: '/',
-                component: require('./views/pages/index')
-            },
-            {
-                path: '/index',
-                component: require('./views/pages/index')
-            },
-            {
                 path: '/login',
                 component: require('./views/auth/login')
             },
@@ -278,6 +270,10 @@ let routes = [
                 component: require('./views/pages/terms-and-conditions')
             }
         ]
+    },
+    {
+        path: '/index',
+        component : require('./views/pages/index')
     },
     {
         path: '/',
@@ -348,7 +344,7 @@ router.beforeEach((to, from, next) => {
                     if(!helper.isAuth()){
                         toastr.error(i18n.auth.auth_required);
                         alert('bonjour');
-                        return next({ path: '/' })
+                        return next({ path: '/index' })
                     }
                 }
 
