@@ -347,6 +347,7 @@ router.beforeEach((to, from, next) => {
                 if (m.meta.validate.indexOf('auth') > -1){
                     if(!helper.isAuth()){
                         toastr.error(i18n.auth.auth_required);
+                        alert('bonjour');
                         return next({ path: '/' })
                     }
                 }
@@ -370,6 +371,8 @@ router.beforeEach((to, from, next) => {
                     if(helper.isAuth()){
                         toastr.error(i18n.auth.guest_required);
                         return next({ path: '/home' })
+                    } else {
+                        return next({ path: '/index'})
                     }
                 }
             }
