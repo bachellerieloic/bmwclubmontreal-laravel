@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="/images/favicon.png">
     </head>
     <body class="fix-header fix-sidebar">
-        <img src="/images/logo-bmw.png" /><br>
+        <img src="/images/logo-bmw.png" width="200px"/><br>
         <a href="/app/login">Login</a>
         <a href="/app/register">Register</a>
     </body>
