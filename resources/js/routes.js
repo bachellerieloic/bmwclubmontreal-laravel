@@ -294,7 +294,7 @@ let routes = [
         ]
     },
     {
-        path: '*',
+        path: '/app/*',
         component : require('./layouts/error-page'),
         children: [
             {
