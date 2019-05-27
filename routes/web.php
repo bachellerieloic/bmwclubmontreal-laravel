@@ -28,7 +28,7 @@ Route::get('/js/lang', function () {
     if(\Cache::has('locale')){
         config(['app.locale' => \Cache::get('locale')]);
     }
-    
+
     $strings = Cache::rememberForever('lang.js', function () {
         $lang = config('app.locale');
         $files   = glob(resource_path('lang/' . $lang . '/*.php'));
@@ -44,6 +44,10 @@ Route::get('/js/lang', function () {
     exit();
 })->name('assets.lang');
 
-Route::get('/{vue?}', function () {
+Route::get('/', function(){
+    return view('index');
+});
+
+Route::get('/app/{vue?}', function () {
     return view('home');
 })->where('vue', '[\/\w\.-]*')->name('home');
