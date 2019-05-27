@@ -31,7 +31,7 @@
   'logged_in' => 'You are successfully logged in.',
   'logged_out' => 'You are successfully logged out.',
   'logging_in' => 'Loggin in...',
-  'login' => 'BMW Club Montreal Login',
+  'login' => 'Login',
   'login_permission_disabled' => 'You cannot login because no login permission is assigned to you.',
   'login_recaptcha' => 'Enable Recaptch in Login',
   'login_throttle' => 'Login Throttle',
