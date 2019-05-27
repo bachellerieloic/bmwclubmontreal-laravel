@@ -3,7 +3,7 @@ import store from './store'
 
 let routes = [
     {
-        path: '/app',                                       // all the routes which needs authentication + two factor authentication + lock screen
+        path: '/',                                       // all the routes which needs authentication + two factor authentication + lock screen
         component: require('./layouts/default-page'),
         meta: { validate: ['auth','two_factor','lock_screen'] },
         children: [
@@ -216,7 +216,7 @@ let routes = [
         ]
     },
     {
-        path: '/app',
+        path: '/',
         component: require('./layouts/guest-page'),
         meta: { validate: ['auth'] },
         children: [
@@ -231,13 +231,13 @@ let routes = [
         ]
     },
     {
-        path: '/app',                      // all the routes which can be access without authentication
+        path: '/',                      // all the routes which can be access without authentication
         component: require('./layouts/guest-page'),
         meta: { validate: ['guest'] },
         children: [
             {
-                path: '/app',
-                component: require('./views/auth/login')
+                path: '/',
+                component: require('./views/pages/index')
             },
             {
                 path: '/login',
@@ -266,7 +266,7 @@ let routes = [
         ]
     },
     {
-        path: '/app',
+        path: '/',
         component : require('./layouts/guest-page'),
         children: [
             {
@@ -276,7 +276,7 @@ let routes = [
         ]
     },
     {
-        path: '/app',
+        path: '/',
         component : require('./layouts/error-page'),
         children: [
             {
@@ -370,13 +370,13 @@ router.beforeEach((to, from, next) => {
                 }
             }
 
-        return next()
-    })
-    .catch(error => {
-        // Authentication check fail, redirected back to "/login" route
-        store.dispatch('resetAuthUserDetail');
-        return next({ path: '/login' })
-    });
+            return next()
+        })
+        .catch(error => {
+            // Authentication check fail, redirected back to "/login" route
+            store.dispatch('resetAuthUserDetail');
+            return next({ path: '/login' })
+        });
 });
 
 export default router;

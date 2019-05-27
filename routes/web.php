@@ -44,10 +44,6 @@ Route::get('/js/lang', function () {
     exit();
 })->name('assets.lang');
 
-Route::get('/', function(){
-    return view('index');
-});
-
-Route::get('/app/{vue?}', function () {
+Route::get('/{vue?}', function () {
     return view('home');
 })->where('vue', '[\/\w\.-]*')->name('home');
