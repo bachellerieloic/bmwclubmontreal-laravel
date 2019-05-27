@@ -3,7 +3,7 @@ import store from './store'
 
 let routes = [
     {
-        path: '/',                                       // all the routes which needs authentication + two factor authentication + lock screen
+        path: '/app',                                       // all the routes which needs authentication + two factor authentication + lock screen
         component: require('./layouts/default-page'),
         meta: { validate: ['auth','two_factor','lock_screen'] },
         children: [
@@ -231,7 +231,7 @@ let routes = [
         ]
     },
     {
-        path: '/',                      // all the routes which can be access without authentication
+        path: '/app',                      // all the routes which can be access without authentication
         component: require('./layouts/guest-page'),
         meta: { validate: ['guest'] },
         children: [
@@ -266,7 +266,7 @@ let routes = [
         ]
     },
     {
-        path: '/',
+        path: '/app',
         component : require('./layouts/guest-page'),
         children: [
             {
@@ -276,7 +276,7 @@ let routes = [
         ]
     },
     {
-        path: '/',
+        path: '/app',
         component : require('./layouts/error-page'),
         children: [
             {
