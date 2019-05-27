@@ -236,7 +236,7 @@ let routes = [
         meta: { validate: ['guest'] },
         children: [
             {
-                path: '/',
+                path: '/app',
                 component: require('./views/auth/login')
             },
             {
@@ -294,7 +294,7 @@ let routes = [
         ]
     },
     {
-        path: '/app/*',
+        path: '*',
         component : require('./layouts/error-page'),
         children: [
             {
