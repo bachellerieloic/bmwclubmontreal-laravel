@@ -216,7 +216,7 @@ let routes = [
         ]
     },
     {
-        path: '/',
+        path: '/app',
         component: require('./layouts/guest-page'),
         meta: { validate: ['auth'] },
         children: [
