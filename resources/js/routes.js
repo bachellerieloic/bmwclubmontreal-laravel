@@ -240,6 +240,10 @@ let routes = [
                 component: require('./views/pages/index')
             },
             {
+                path: '/index',
+                component: require('./views/pages/index')
+            },
+            {
                 path: '/login',
                 component: require('./views/auth/login')
             },
@@ -343,7 +347,7 @@ router.beforeEach((to, from, next) => {
                 if (m.meta.validate.indexOf('auth') > -1){
                     if(!helper.isAuth()){
                         toastr.error(i18n.auth.auth_required);
-                        return next({ path: '/login' })
+                        return next({ path: '/' })
                     }
                 }
 
@@ -375,7 +379,7 @@ router.beforeEach((to, from, next) => {
         .catch(error => {
             // Authentication check fail, redirected back to "/login" route
             store.dispatch('resetAuthUserDetail');
-            return next({ path: '/login' })
+            return next({ path: '/' })
         });
 });
 
