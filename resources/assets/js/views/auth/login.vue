@@ -3,6 +3,7 @@
         <div class="login-register" style="background-image:url(/images/background/background.jpg);">
             <div class="login-box card">
             <div class="card-body">
+                <img src="/images/logo-bmw.png" width="100px"/>
                 <form class="form-horizontal form-material" id="loginform" @submit.prevent="submit">
                     <h3 class="box-title m-b-20">Sign In</h3>
                     <div class="form-group ">
@@ -18,16 +19,6 @@
                             <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-                            <div class="social">
-                                <a href="/auth/social/github" class="btn  btn-github" data-toggle="tooltip" title="Login with Github"> <i aria-hidden="true" class="fa fa-github"></i> </a>
-                                <a href="/auth/social/twitter" class="btn  btn-twitter" data-toggle="tooltip" title="Login with Twitter"> <i aria-hidden="true" class="fa fa-twitter"></i> </a>
-                                <a href="/auth/social/facebook" class="btn  btn-facebook" data-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fa fa-facebook"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
                             <p>Forgot your password? <router-link to="/password" class="text-info m-l-5"><b>Reset here!</b></router-link></p>
