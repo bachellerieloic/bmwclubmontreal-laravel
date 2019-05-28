@@ -23828,7 +23828,9 @@ var staticRenderFns = [
     return _c("div", { staticClass: "navbar-header" }, [
       _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
         _c("span", [
-          _c("img", { attrs: { src: "/images/logo-bmw.png", alt: "home" } })
+          _c("img", {
+            attrs: { src: "/images/logo-bmw.png", alt: "home", width: "125px" }
+          })
         ])
       ])
     ])
@@ -24297,25 +24299,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("footer", { staticClass: "footer" }, [
+    _vm._v("\n        BMW Club Montreal\n    ")
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "footer" }, [
-      _vm._v("\n        Designed with love by "),
-      _c("a", { attrs: { href: "http://wmlab.in", target: "_blank" } }, [
-        _vm._v("WMLab")
-      ]),
-      _vm._v(" | Theme by "),
-      _c("a", { attrs: { href: "http://wrappixel.com", target: "_blank" } }, [
-        _vm._v("Wrappixel")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
