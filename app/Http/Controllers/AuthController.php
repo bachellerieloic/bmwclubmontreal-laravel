@@ -96,7 +96,7 @@ class AuthController extends Controller
 
         $user = \App\User::create([
             'email' => request('email'),
-            'status' => 'pending_activation',
+            'status' => 'activated',
             'password' => bcrypt(request('password'))
         ]);
 
