@@ -4,7 +4,7 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">
                     <span>
-                     <img src="/images/logo-bmw.png" alt="home"/>
+                     <img src="/images/logo-bmw.png" alt="home" width="125px"/>
                     </span>
                 </a>
             </div>
