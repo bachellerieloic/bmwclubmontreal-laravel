@@ -3,13 +3,10 @@
         <nav class="navbar top-navbar navbar-expand-md navbar-light">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">
-                    <b>
-                        <img src="/images/logo-icon.png" alt="home" class="dark-logo" />
-                        <img src="/images/logo-light-icon.png" alt="home" class="light-logo" />
-                    </b>
                     <span>
-                     <img src="/images/logo-text.png" alt="home" class="dark-logo" />
-                     <img src="/images/logo-light-text.png" class="light-logo" alt="home" /></span> </a>
+                     <img src="/images/logo-bmw.png" alt="home"/>
+                    </span>
+                </a>
             </div>
             <div class="navbar-collapse">
                 <ul class="navbar-nav mr-auto mt-md-0 ">
@@ -47,7 +44,7 @@
 <script>
 
     import helper from '../services/helper'
-    
+
     export default {
         mounted() {
         },
