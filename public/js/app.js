@@ -29473,9 +29473,9 @@ var render = function() {
           "div",
           { staticClass: "login-box card" },
           [
-            _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "card-body text-center" }, [
               _c("img", {
-                attrs: { src: "/images/logo-bmw.png", width: "100px" }
+                attrs: { src: "/images/logo-bmw.png", width: "200px" }
               }),
               _vm._v(" "),
               _c(
@@ -30054,9 +30054,9 @@ var render = function() {
           "div",
           { staticClass: "login-box card" },
           [
-            _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "card-body text-center" }, [
               _c("img", {
-                attrs: { src: "/images/logo-bmw.png", width: "100px" }
+                attrs: { src: "/images/logo-bmw.png", width: "200px" }
               }),
               _vm._v(" "),
               _c(
