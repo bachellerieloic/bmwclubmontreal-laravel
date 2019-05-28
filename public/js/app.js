@@ -23653,9 +23653,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 
@@ -23830,28 +23827,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "navbar-header" }, [
       _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
-        _c("b", [
-          _c("img", {
-            staticClass: "dark-logo",
-            attrs: { src: "/images/logo-icon.png", alt: "home" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "light-logo",
-            attrs: { src: "/images/logo-light-icon.png", alt: "home" }
-          })
-        ]),
-        _vm._v(" "),
         _c("span", [
-          _c("img", {
-            staticClass: "dark-logo",
-            attrs: { src: "/images/logo-text.png", alt: "home" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "light-logo",
-            attrs: { src: "/images/logo-light-text.png", alt: "home" }
-          })
+          _c("img", { attrs: { src: "/images/logo-bmw.png", alt: "home" } })
         ])
       ])
     ])
@@ -29392,15 +29369,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -29438,8 +29406,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 107 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -29447,6 +29417,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 /* 108 */
@@ -29465,18 +29437,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("p", { staticClass: "text-center" }, [
-        _c("small", [
-          _vm._v("Designed with love by "),
-          _c("a", { attrs: { href: "http://wmlab.in", target: "_blank" } }, [
-            _vm._v("WMLab")
-          ]),
-          _vm._v(" | Theme by "),
-          _c(
-            "a",
-            { attrs: { href: "http://wrappixel.com", target: "_blank" } },
-            [_vm._v("Wrappixel")]
-          )
-        ])
+        _c("small", [_vm._v("Bmw Club Montreal")])
       ])
     ])
   }
@@ -29513,6 +29474,10 @@ var render = function() {
           { staticClass: "login-box card" },
           [
             _c("div", { staticClass: "card-body" }, [
+              _c("img", {
+                attrs: { src: "/images/logo-bmw.png", width: "100px" }
+              }),
+              _vm._v(" "),
               _c(
                 "form",
                 {
@@ -29600,8 +29565,6 @@ var render = function() {
                   _vm._v(" "),
                   _vm._m(0),
                   _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
                   _c("div", { staticClass: "form-group m-b-0" }, [
                     _c("div", { staticClass: "col-sm-12 text-center" }, [
                       _c(
@@ -29666,74 +29629,6 @@ var staticRenderFns = [
           [_vm._v("Log In")]
         )
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col-xs-12 col-sm-12 col-md-12 m-t-10 text-center" },
-        [
-          _c("div", { staticClass: "social" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn  btn-github",
-                attrs: {
-                  href: "/auth/social/github",
-                  "data-toggle": "tooltip",
-                  title: "Login with Github"
-                }
-              },
-              [
-                _c("i", {
-                  staticClass: "fa fa-github",
-                  attrs: { "aria-hidden": "true" }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn  btn-twitter",
-                attrs: {
-                  href: "/auth/social/twitter",
-                  "data-toggle": "tooltip",
-                  title: "Login with Twitter"
-                }
-              },
-              [
-                _c("i", {
-                  staticClass: "fa fa-twitter",
-                  attrs: { "aria-hidden": "true" }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn  btn-facebook",
-                attrs: {
-                  href: "/auth/social/facebook",
-                  "data-toggle": "tooltip",
-                  title: "Login with Facebook"
-                }
-              },
-              [
-                _c("i", {
-                  staticClass: "fa fa-facebook",
-                  attrs: { "aria-hidden": "true" }
-                })
-              ]
-            )
-          ])
-        ]
-      )
     ])
   }
 ]
@@ -30101,6 +29996,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -30159,6 +30055,10 @@ var render = function() {
           { staticClass: "login-box card" },
           [
             _c("div", { staticClass: "card-body" }, [
+              _c("img", {
+                attrs: { src: "/images/logo-bmw.png", width: "100px" }
+              }),
+              _vm._v(" "),
               _c(
                 "form",
                 {
