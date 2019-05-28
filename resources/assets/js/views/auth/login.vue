@@ -2,8 +2,8 @@
     <section id="wrapper">
         <div class="login-register" style="background-image:url(/images/background/background.jpg);">
             <div class="login-box card">
-            <div class="card-body">
-                <img src="/images/logo-bmw.png" width="100px"/>
+            <div class="card-body text-center">
+                <img src="/images/logo-bmw.png" width="200px"/>
                 <form class="form-horizontal form-material" id="loginform" @submit.prevent="submit">
                     <h3 class="box-title m-b-20">Sign In</h3>
                     <div class="form-group ">
