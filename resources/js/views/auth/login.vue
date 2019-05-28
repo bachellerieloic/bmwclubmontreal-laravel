@@ -40,6 +40,7 @@
                         </div>
                     </form>
                 </div>
+                <guest-footer></guest-footer>
             </div>
         </div>
 

@@ -1,14 +1,13 @@
 {
   "private": true,
   "scripts": {
-    "dev": "npm run dev",
+    "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch-poll": "npm run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "deploy": "npm run dev"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
     "axios": "^0.18.0",
@@ -17,15 +16,17 @@
     "codemirror": "^5.40.0",
     "compression-webpack-plugin": "^1.1.12",
     "cross-env": "^5.2.0",
-    "laravel-mix": "^2.1.14",
+    "laravel-mix": "^4.0.15",
     "lodash": "^4.17.11",
     "normalize-scss": "^7.0.1",
-    "webpack-bundle-analyzer": "^2.13.1"
+    "webpack-bundle-analyzer": "^3.3.2"
   },
   "dependencies": {
+    "@babel/parser": "^7.4.5",
     "acorn": "^6.1.1",
     "js-cookie": "^2.2.0",
     "laravel-vue-pagination": "^1.2.0",
+    "semver": "^6.1.0",
     "uuid": "^3.3.2",
     "v-tooltip": "^2.0.0-rc.33",
     "vue": "^2.5.17",

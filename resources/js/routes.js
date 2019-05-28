@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from './store'
 
@@ -272,10 +273,6 @@ let routes = [
         ]
     },
     {
-        path: '/index',
-        component : require('./views/pages/index')
-    },
-    {
         path: '/',
         component : require('./layouts/error-page'),
         children: [
@@ -343,8 +340,7 @@ router.beforeEach((to, from, next) => {
                 if (m.meta.validate.indexOf('auth') > -1){
                     if(!helper.isAuth()){
                         toastr.error(i18n.auth.auth_required);
-                        alert('bonjour');
-                        return next({ path: '/index' })
+                        return next({ path: '/login' })
                     }
                 }
 
@@ -367,19 +363,17 @@ router.beforeEach((to, from, next) => {
                     if(helper.isAuth()){
                         toastr.error(i18n.auth.guest_required);
                         return next({ path: '/home' })
-                    } else {
-                        return next({ path: '/index'})
                     }
                 }
             }
 
-            return next()
-        })
-        .catch(error => {
-            // Authentication check fail, redirected back to "/login" route
-            store.dispatch('resetAuthUserDetail');
-            return next({ path: '/' })
-        });
+        return next()
+    })
+    .catch(error => {
+        // Authentication check fail, redirected back to "/login" route
+        store.dispatch('resetAuthUserDetail');
+        return next({ path: '/login' })
+    });
 });
 
 export default router;
