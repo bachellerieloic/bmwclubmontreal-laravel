@@ -2,248 +2,224 @@
 
 namespace App\Http\Controllers;
 
-use JWTAuth;
 use Illuminate\Http\Request;
-use App\Http\Requests\LoginRequest;
-use App\Repositories\AuthRepository;
-use App\Repositories\UserRepository;
-use App\Http\Requests\PasswordRequest;
-use App\Http\Requests\RegisterRequest;
+use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use App\Http\Requests\ResetPasswordRequest;
-use App\Repositories\ActivityLogRepository;
-use App\Http\Requests\ChangePasswordRequest;
+use Validator;
+use App\Notifications\Activation;
+use App\Notifications\Activated;
+use App\Notifications\PasswordReset;
+use App\Notifications\PasswordResetted;
 
 class AuthController extends Controller
 {
-    protected $request;
-    protected $repo;
-    protected $user;
-    protected $activity;
-    protected $module = 'user';
-
-    /**
-     * Instantiate a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct(Request $request, AuthRepository $repo, UserRepository $user, ActivityLogRepository $activity)
+    public function authenticate(Request $request)
     {
-        $this->request = $request;
-        $this->repo = $repo;
-        $this->user = $user;
-        $this->activity = $activity;
-        
-        $this->middleware('prohibited.test.mode')->only('changePassword');
+        $credentials = $request->only('email', 'password');
+
+        try {
+            if (! $token = JWTAuth::attempt($credentials)) {
+                return response()->json(['message' => 'Invalid Credentials! Please try again.'], 422);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['message' => 'This is something wrong. Please try again!'], 500);
+        }
+
+        $user = \App\User::whereEmail(request('email'))->first();
+
+        if($user->status == 'pending_activation')
+            return response()->json(['message' => 'Your account hasn\'t been activated. Please check your email & activate account.'], 422);
+
+        if($user->status == 'banned')
+            return response()->json(['message' => 'Your account is banned. Please contact system administrator.'], 422);
+
+        if($user->status != 'activated')
+            return response()->json(['message' => 'There is something wrong with your account. Please contact system administrator.'], 422);
+
+        return response()->json(['message' => 'You are successfully logged in!','token' => $token]);
     }
 
-    /**
-     * Used to authenticate user
-     * @post ("/api/auth/login")
-     * @param ({
-     *      @Parameter("email", type="email", required="true", description="Email of User"),
-     *      @Parameter("password", type="password", required="true", description="Password of User"),
-     * })
-     * @return authentication token
-     */
-    public function authenticate(LoginRequest $request)
-    {
-        $auth = $this->repo->auth($this->request->all());
+    public function getAuthUser(){
+        try {
+            JWTAuth::parseToken()->authenticate();
+        } catch (JWTException $e) {
+            return response()->json(['authenticated' => false],422);
+        }
 
-        $auth_user       = $auth['user'];
-        $token           = $auth['token'];
-        $two_factor_code = $auth['two_factor_code'];
+        $user = JWTAuth::parseToken()->authenticate();
+        $profile = $user->Profile;
+        $social_auth = ($user->password) ? 0 : 1;
 
-        $this->activity->record([
-            'module'    => $this->module,
-            'module_id' => $auth_user->id,
-            'user_id'   => $auth_user->id,
-            'activity'  => 'logged_in'
-        ]);
-        \Cache::put('locale',$auth_user->UserPreference->locale,config('jwt.ttl') * 60 );
-        \Cache::put('direction',$auth_user->UserPreference->direction,config('jwt.ttl') * 60);
-
-        $reload = (config('app.locale') != cache('locale') || config('config.direction') != cache('direction')) ? 1 : 0;
-
-        return $this->success([
-            'message'         => trans('auth.logged_in'),
-            'token'           => $token,
-            'user'            => $auth_user,
-            'two_factor_code' => $two_factor_code,
-            'reload'          => $reload
-        ]);
+        return response()->json(compact('user','profile','social_auth'));
     }
 
-    /**
-     * Used to check user authenticated or not
-     * @post ("/api/auth/check")
-     * @return Response
-     */
     public function check()
     {
-        return $this->success($this->repo->check());
+        try {
+            JWTAuth::parseToken()->authenticate();
+        } catch (JWTException $e) {
+            return response(['authenticated' => false]);
+        }
+
+        return response(['authenticated' => true]);
     }
 
-    /**
-     * Used to logout user
-     * @post ("/api/auth/logout")
-     * @return Response
-     */
     public function logout()
     {
-        $auth_user = \Auth::user();
 
         try {
             $token = JWTAuth::getToken();
+
+            if ($token) {
+                JWTAuth::invalidate($token);
+            }
+
         } catch (JWTException $e) {
-            return $this->error($e->getMessage());
+            return response()->json($e->getMessage(), 500);
         }
 
-        \Cache::forget('direction');
-        \Cache::forget('locale');
-        
-        JWTAuth::invalidate($token);
+        return response()->json(['message' => 'You are successfully logged out!']);
+    }
 
-        $this->activity->record([
-            'module'    => $this->module,
-            'module_id' => $auth_user->id,
-            'user_id'   => $auth_user->id,
-            'activity'  => 'logged_out'
+    public function register(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required|same:password'
         ]);
 
-        return $this->success(['message' => trans('auth.logged_out')]);
-    }
+        if($validation->fails())
+            return response()->json(['message' => $validation->messages()->first()],422);
 
-    /**
-     * Used to create user
-     * @post ("/api/auth/register")
-     * @param ({
-     *      @Parameter("first_name", type="text", required="true", description="First Name of User"),
-     *      @Parameter("last_name", type="text", required="true", description="Last Name of User"),
-     *      @Parameter("email", type="email", required="true", description="Email of User"),
-     *      @Parameter("password", type="password", required="true", description="Password of User"),
-     *      @Parameter("password_confirmation", type="password", required="true", description="Confirm Password of User"),
-     *      @Parameter("tnc", type="checkbox", required="optional", description="Accept Terms & Conditions"),
-     * })
-     * @return Response
-     */
-    public function register(RegisterRequest $request)
-    {
-        $this->repo->validateRegistrationStatus();
-
-        $new_user = $this->user->create($this->request->all(), 1);
-
-        return $this->success(['message' => trans('auth.account_created')]);
-    }
-
-    /**
-     * Used to activate new user
-     * @get ("/api/auth/activate/{token}")
-     * @param ({
-     *      @Parameter("token", type="string", required="true", description="Activation Token of User"),
-     * })
-     * @return Response
-     */
-    public function activate($activation_token)
-    {
-        $this->repo->activate($activation_token);
-
-        return $this->success(['message' => trans('auth.account_activated')]);
-    }
-
-    /**
-     * Used to request password reset token for user
-     * @post ("/api/auth/password")
-     * @param ({
-     *      @Parameter("email", type="email", required="true", description="Registered Email of User"),
-     * })
-     * @return Response
-     */
-    public function password(PasswordRequest $request)
-    {
-        $this->repo->password($this->request->all());
-
-        return $this->success(['message' => trans('passwords.sent')]);
-    }
-
-    /**
-     * Used to validate user password
-     * @post ("/api/auth/validate-password-reset")
-     * @param ({
-     *      @Parameter("token", type="string", required="true", description="Reset Password Token"),
-     * })
-     * @return Response
-     */
-    public function validatePasswordReset()
-    {
-        $this->repo->validateResetPasswordToken(request('token'));
-
-        return $this->success(['message' => '']);
-    }
-
-    /**
-     * Used to reset user password
-     * @post ("/api/auth/reset")
-     * @param ({
-     *      @Parameter("token", type="string", required="true", description="Reset Password Token"),
-     *      @Parameter("email", type="email", required="true", description="Email of User"),
-     *      @Parameter("password", type="password", required="true", description="New Password of User"),
-     *      @Parameter("password_confirmation", type="password", required="true", description="New Confirm Password of User"),
-     * })
-     * @return Response
-     */
-    public function reset(ResetPasswordRequest $request)
-    {
-        $this->repo->reset($this->request->all());
-
-        return $this->success(['message' => trans('passwords.reset')]);
-    }
-
-    /**
-     * Used to change user password
-     * @post ("/api/change-password")
-     * @param ({
-     *      @Parameter("current_password", type="password", required="true", description="Current Password of User"),
-     *      @Parameter("new_password", type="password", required="true", description="New Password of User"),
-     *      @Parameter("new_password_confirmation", type="password", required="true", description="New Confirm Password of User"),
-     * })
-     * @return Response
-     */
-    public function changePassword(ChangePasswordRequest $request)
-    {
-        $this->repo->validateCurrentPassword(request('current_password'));
-
-        $this->repo->resetPassword(request('new_password'));
-
-        $this->activity->record([
-            'module'     => $this->module,
-            'module_id'  => \Auth::user()->id,
-            'sub_module' => 'password',
-            'activity'   => 'resetted'
+        $user = \App\User::create([
+            'email' => request('email'),
+            'status' => 'pending_activation',
+            'password' => bcrypt(request('password'))
         ]);
 
-        return $this->success(['message' => trans('passwords.change')]);
+        $user->activation_token = generateUuid();
+        $user->save();
+        $profile = new \App\Profile;
+        $profile->first_name = request('first_name');
+        $profile->last_name = request('last_name');
+        $user->profile()->save($profile);
+
+        $user->notify(new Activation($user));
+
+        return response()->json(['message' => 'You have registered successfully. Please check your email for activation!']);
     }
 
-    /**
-     * Used to verify password during Screen Lock
-     * @post ("/api/auth/lock")
-     * @param ({
-     *      @Parameter("password", type="password", required="true", description="Password of User"),
-     * })
-     * @return Response
-     */
-    public function lock(LoginRequest $request)
-    {
-        $this->repo->validateCurrentPassword(request('password'));
+    public function activate($activation_token){
+        $user = \App\User::whereActivationToken($activation_token)->first();
 
-        $this->activity->record([
-            'module'     => $this->module,
-            'module_id'  => \Auth::user()->id,
-            'sub_module' => 'screen',
-            'activity'   => 'unlocked'
+        if(!$user)
+            return response()->json(['message' => 'Invalid activation token!'],422);
+
+        if($user->status == 'activated')
+            return response()->json(['message' => 'Your account has already been activated!'],422);
+
+        if($user->status != 'pending_activation')
+            return response()->json(['message' => 'Invalid activation token!'],422);
+
+        $user->status = 'activated';
+        $user->save();
+        $user->notify(new Activated($user));
+
+        return response()->json(['message' => 'Your account has been activated!']);
+    }
+
+    public function password(Request $request){
+
+        $validation = Validator::make($request->all(), [
+            'email' => 'required|email'
         ]);
 
-        return $this->success(['message' => trans('auth.lock_screen_verified')]);
+        if($validation->fails())
+            return response()->json(['message' => $validation->messages()->first()],422);
+
+        $user = \App\User::whereEmail(request('email'))->first();
+
+        if(!$user)
+            return response()->json(['message' => 'We couldn\'t found any user with this email. Please try again!'],422);
+
+        $token = generateUuid();
+        \DB::table('password_resets')->insert([
+            'email' => request('email'),
+            'token' => $token
+        ]);
+        $user->notify(new PasswordReset($user,$token));
+
+        return response()->json(['message' => 'We have sent reminder email. Please check your inbox!']);
+    }
+
+    public function validatePasswordReset(Request $request){
+        $validate_password_request = \DB::table('password_resets')->where('token','=',request('token'))->first();
+
+        if(!$validate_password_request)
+            return response()->json(['message' => 'Invalid password reset token!'],422);
+
+        if(date("Y-m-d H:i:s", strtotime($validate_password_request->created_at . "+30 minutes")) < date('Y-m-d H:i:s'))
+            return response()->json(['message' => 'Password reset token is expired. Please request reset password again!'],422);
+
+        return response()->json(['message' => '']);
+    }
+
+    public function reset(Request $request){
+
+        $validation = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required|same:password'
+        ]);
+
+        if($validation->fails())
+            return response()->json(['message' => $validation->messages()->first()],422);
+
+        $user = \App\User::whereEmail(request('email'))->first();
+
+        if(!$user)
+            return response()->json(['message' => 'We couldn\'t found any user with this email. Please try again!'],422);
+
+        $validate_password_request = \DB::table('password_resets')->where('email','=',request('email'))->where('token','=',request('token'))->first();
+
+        if(!$validate_password_request)
+            return response()->json(['message' => 'Invalid password reset token!'],422);
+
+        if(date("Y-m-d H:i:s", strtotime($validate_password_request->created_at . "+30 minutes")) < date('Y-m-d H:i:s'))
+            return response()->json(['message' => 'Password reset token is expired. Please request reset password again!'],422);
+
+        $user->password = bcrypt(request('password'));
+        $user->save();
+
+        $user->notify(new PasswordResetted($user));
+
+        return response()->json(['message' => 'Your password has been reset. Please login again!']);
+    }
+
+    public function changePassword(Request $request){
+        if(env('IS_DEMO'))
+            return response()->json(['message' => 'You are not allowed to perform this action in this mode.'],422);
+
+        $validation = Validator::make($request->all(),[
+            'current_password' => 'required',
+            'new_password' => 'required|confirmed|different:current_password|min:6',
+            'new_password_confirmation' => 'required|same:new_password'
+        ]);
+
+        if($validation->fails())
+            return response()->json(['message' => $validation->messages()->first()],422);
+
+        $user = JWTAuth::parseToken()->authenticate();
+
+        if(!\Hash::check(request('current_password'),$user->password))
+            return response()->json(['message' => 'Old password does not match! Please try again!'],422);
+
+        $user->password = bcrypt(request('new_password'));
+        $user->save();
+
+        return response()->json(['message' => 'Your password has been changed successfully!']);
     }
 }

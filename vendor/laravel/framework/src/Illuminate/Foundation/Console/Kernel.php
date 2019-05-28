@@ -6,7 +6,6 @@ use Closure;
 use Exception;
 use Throwable;
 use ReflectionClass;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Symfony\Component\Finder\Finder;
@@ -99,23 +98,12 @@ class Kernel implements KernelContract
     protected function defineConsoleSchedule()
     {
         $this->app->singleton(Schedule::class, function ($app) {
-            return (new Schedule($this->scheduleTimezone()))
-                    ->useCache($this->scheduleCache());
+            return new Schedule;
         });
 
         $schedule = $this->app->make(Schedule::class);
 
         $this->schedule($schedule);
-    }
-
-    /**
-     * Get the name of the cache store that should manage scheduling mutexes.
-     *
-     * @return string
-     */
-    protected function scheduleCache()
-    {
-        return $_ENV['SCHEDULE_CACHE_DRIVER'] ?? null;
     }
 
     /**
@@ -172,18 +160,6 @@ class Kernel implements KernelContract
     }
 
     /**
-     * Get the timezone that should be used by default for scheduled events.
-     *
-     * @return \DateTimeZone|string|null
-     */
-    protected function scheduleTimezone()
-    {
-        $config = $this->app['config'];
-
-        return $config->get('app.schedule_timezone', $config->get('app.timezone'));
-    }
-
-    /**
      * Register the Closure based commands for the application.
      *
      * @return void
@@ -219,7 +195,7 @@ class Kernel implements KernelContract
      */
     protected function load($paths)
     {
-        $paths = array_unique(Arr::wrap($paths));
+        $paths = array_unique(is_array($paths) ? $paths : (array) $paths);
 
         $paths = array_filter($paths, function ($path) {
             return is_dir($path);
@@ -235,7 +211,7 @@ class Kernel implements KernelContract
             $command = $namespace.str_replace(
                 ['/', '.php'],
                 ['\\', ''],
-                Str::after($command->getPathname(), realpath(app_path()).DIRECTORY_SEPARATOR)
+                Str::after($command->getPathname(), app_path().DIRECTORY_SEPARATOR)
             );
 
             if (is_subclass_of($command, Command::class) &&
@@ -265,8 +241,6 @@ class Kernel implements KernelContract
      * @param  array  $parameters
      * @param  \Symfony\Component\Console\Output\OutputInterface  $outputBuffer
      * @return int
-     *
-     * @throws \Symfony\Component\Console\Exception\CommandNotFoundException
      */
     public function call($command, array $parameters = [], $outputBuffer = null)
     {
@@ -379,7 +353,7 @@ class Kernel implements KernelContract
     }
 
     /**
-     * Render the given exception.
+     * Report the exception to the exception handler.
      *
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @param  \Exception  $e

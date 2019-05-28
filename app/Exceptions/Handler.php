@@ -4,7 +4,6 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 
 class Handler extends ExceptionHandler
 {
@@ -37,9 +36,12 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        if (app()->bound('sentry') && $this->shouldReport($exception)) {
-            app('sentry')->captureException($exception);
+        if ($exception instanceof Tymon\JWTAuth\Exceptions\TokenExpiredException) {
+            return response()->json(['message' => 'Your session is expired. Please login again!'], $exception->getStatusCode());
+        } else if ($exception instanceof Tymon\JWTAuth\Exceptions\TokenInvalidException) {
+            return response()->json(['message' => 'Invalid login token. Please login again!'], $exception->getStatusCode());
         }
+
         parent::report($exception);
     }
 
@@ -52,9 +54,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof FileNotFoundException) {
-            return response()->view('errors.file-not-found', compact('exception'), 500);
-        }
         return parent::render($request, $exception);
     }
 }

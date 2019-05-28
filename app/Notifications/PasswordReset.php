@@ -38,7 +38,7 @@ class PasswordReset extends Notification
     }
 
     /**
-     * To send Password Reset mail after request
+     * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
@@ -48,8 +48,7 @@ class PasswordReset extends Notification
         $url = url('/password/reset/'.$this->token);
 
         return (new MailMessage)
-                    ->subject('Password Reset | Script Mint')
-                    ->greeting('Hello '.$this->user->Profile->first_name)
+                    ->greeting('Hello!')
                     ->line('We have recevied password reset request from you!')
                     ->line('Click on the below link to reset your password.')
                     ->action('Reset Password', $url)

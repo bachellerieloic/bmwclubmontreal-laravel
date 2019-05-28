@@ -36,7 +36,7 @@ class Activated extends Notification
     }
 
     /**
-     * To send Account Activated mail after account activation
+     * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
@@ -46,12 +46,11 @@ class Activated extends Notification
         $url = url('/');
 
         return (new MailMessage)
-                    ->subject('Account Activated | Script Mint')
-                    ->greeting('Hello '.$this->user->Profile->first_name)
+                    ->greeting('Hello!')
                     ->line('Your account has been activated.')
-                    ->line('Click on the below link to go to ScriptMint!')
+                    ->line('Click on the below link to go to our application!')
                     ->action('Proceed', $url)
-                    ->line('Thank you for registering account with ScriptMint!');
+                    ->line('Thank you for using our application!');
     }
 
     /**

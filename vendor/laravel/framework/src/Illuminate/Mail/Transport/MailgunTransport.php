@@ -22,7 +22,7 @@ class MailgunTransport extends Transport
     protected $key;
 
     /**
-     * The Mailgun email domain.
+     * The Mailgun domain.
      *
      * @var string
      */

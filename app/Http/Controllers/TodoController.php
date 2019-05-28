@@ -2,162 +2,64 @@
 
 namespace App\Http\Controllers;
 
-use JWTAuth;
-use App\Todo;
 use Illuminate\Http\Request;
-use App\Http\Requests\TodoRequest;
-use App\Repositories\TodoRepository;
-use App\Repositories\ActivityLogRepository;
+use JWTAuth;
+use Validator;
 
 class TodoController extends Controller
 {
-    protected $module = 'todo';
 
-    private $request;
-    private $repo;
-    protected $activity;
+    public function index(){
+        $user = JWTAuth::parseToken()->authenticate();
+        $query = \App\Todo::whereUserId($user->id);
 
-    /**
-     * Instantiate a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct(Request $request, TodoRepository $repo, ActivityLogRepository $activity)
-    {
-        $this->request  = $request;
-        $this->repo     = $repo;
-        $this->activity = $activity;
+        if(request()->has('show_todo_status'))
+            $query->whereStatus(request('show_todo_status'));
 
-        $this->middleware('feature.available:todo');
+        $todos = $query->get();
+        return $todos;
     }
 
-    /**
-     * Used to get all Todos
-     * @get ("/api/todo")
-     * @return Response
-     */
-    public function index()
-    {
-        $this->authorize('view', Todo::class);
+    public function store(Request $request){
 
-        return $this->ok($this->repo->paginate($this->request->all()));
-    }
-
-    /**
-     * Used to store Todo
-     * @post ("/api/todo")
-     * @param ({
-     *      @Parameter("title", type="string", required="true", description="Title of Todo"),
-     *      @Parameter("date", type="date", required="true", description="Due date of Todo"),
-     * })
-     * @return Response
-     */
-    public function store(TodoRequest $request)
-    {
-        $this->authorize('create', Todo::class);
-
-        $todo = $this->repo->create($this->request->all());
-
-        $this->activity->record([
-            'module'   => $this->module,
-            'module_id' => $todo->id,
-            'activity' => 'added'
+        $validation = Validator::make($request->all(), [
+            'todo' => 'required'
         ]);
 
-        return $this->success(['message' => trans('todo.added')]);
+        if($validation->fails())
+          return response()->json(['message' => $validation->messages()->first()],422);
+
+        $user = \JWTAuth::parseToken()->authenticate();
+        $todo = new \App\Todo;
+        $todo->fill(request()->all());
+        $todo->user_id = $user->id;
+        $todo->save();
+
+        return response()->json(['message' => 'Todo added!', 'data' => $todo]);
     }
 
-    /**
-     * Used to get Todo detail
-     * @get ("/api/todo/{id}")
-     * @param ({
-     *      @Parameter("id", type="integer", required="true", description="Id of Todo"),
-     * })
-     * @return Response
-     */
-    public function show($id)
-    {
-        $todo = $this->repo->findOrFail($id);
+    public function toggleStatus(Request $request){
+        $todo = \App\Todo::find(request('id'));
+        $user = JWTAuth::parseToken()->authenticate();
 
-        $this->authorize('show', $todo);
+        if(!$todo || $todo->user_id != $user->id)
+            return response()->json(['message' => 'Couldnot find todo!'],422);
 
-        return $this->ok($todo);
+        $todo->status = !$todo->status;
+        $todo->save();
+
+        return response()->json(['message' => 'Todo updated!']);
     }
 
-    /**
-     * Used to update Todo status
-     * @post ("/api/todo/{id}/status")
-     * @param ({
-     *      @Parameter("id", type="integer", required="true", description="Id of Todo"),
-     * })
-     * @return Response
-     */
-    public function toggleStatus($id)
-    {
-        $todo = $this->repo->findOrFail($id);
+    public function destroy(Request $request, $id){
+        $todo = \App\Todo::find($id);
+        $user = JWTAuth::parseToken()->authenticate();
 
-        $this->authorize('update', $todo);
+        if(!$todo || $todo->user_id != $user->id)
+            return response()->json(['message' => 'Couldnot find todo!'],422);
 
-        $todo = $this->repo->toggle($todo);
+        $todo->delete();
 
-        $this->activity->record([
-            'module'   => $this->module,
-            'module_id' => $todo->id,
-            'activity' => 'updated'
-        ]);
-
-        return $this->success(['message' => trans('todo.updated'),'todo' => $todo]);
-    }
-
-    /**
-     * Used to update Todo
-     * @patch ("/api/todo/{id}")
-     * @param ({
-     *      @Parameter("id", type="integer", required="true", description="Id of Todo"),
-     *      @Parameter("title", type="string", required="true", description="Title of Todo"),
-     *      @Parameter("date", type="date", required="true", description="Due date of Todo"),
-     * })
-     * @return Response
-     */
-    public function update($id, TodoRequest $request)
-    {
-        $todo = $this->repo->findOrFail($id);
-
-        $this->authorize('update', $todo);
-
-        $todo = $this->repo->update($todo, $this->request->all());
-
-        $this->activity->record([
-            'module'   => $this->module,
-            'module_id' => $todo->id,
-            'activity' => 'updated'
-        ]);
-
-        return $this->success(['message' => trans('todo.updated')]);
-    }
-
-    /**
-     * Used to delete Todo
-     * @delete ("/api/todo/{id}")
-     * @param ({
-     *      @Parameter("id", type="integer", required="true", description="Id of Todo"),
-     * })
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        $todo = $this->repo->findOrFail($id);
-
-        $this->authorize('delete', $todo);
-
-        $this->activity->record([
-            'module'   => $this->module,
-            'module_id' => $todo->id,
-            'activity' => 'deleted'
-        ]);
-
-        $this->repo->delete($todo);
-
-        return $this->success(['message' => trans('todo.deleted')]);
+        return response()->json(['message' => 'Todo deleted!']);
     }
 }

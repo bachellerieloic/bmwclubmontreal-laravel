@@ -36,7 +36,7 @@ class Activation extends Notification
     }
 
     /**
-     * To send Account Activation mail after account creation
+     * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
@@ -46,12 +46,11 @@ class Activation extends Notification
         $url = url('/auth/'.$this->user->activation_token.'/activate');
 
         return (new MailMessage)
-                    ->subject('Activate Your Account | Script Mint')
-                    ->greeting('Hello '.$this->user->Profile->first_name)
+                    ->greeting('Hello!')
                     ->line('Thank you for registering an account with us.')
                     ->line('Click on the below link to verify your email!')
                     ->action('Verify now!', $url)
-                    ->line('Have a great day ahead!');
+                    ->line('Thank you for using our application!');
     }
 
     /**
