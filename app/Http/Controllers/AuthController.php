@@ -99,7 +99,7 @@ class AuthController extends Controller
             'status' => 'activated',
             'password' => bcrypt(request('password'))
         ]);
-
+        $user->assignRole('user');
         $user->activation_token = generateUuid();
         $user->save();
         $profile = new \App\Profile;
