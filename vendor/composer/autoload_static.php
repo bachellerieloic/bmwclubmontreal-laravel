@@ -441,6 +441,7 @@ class ComposerStaticInit2f3d02445770d2e13035055e5e18ebbe
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Sorties' => __DIR__ . '/../..' . '/app/Sorties.php',
         'App\\Task' => __DIR__ . '/../..' . '/app/Task.php',
         'App\\Todo' => __DIR__ . '/../..' . '/app/Todo.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',

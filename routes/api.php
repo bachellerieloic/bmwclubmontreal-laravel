@@ -26,13 +26,15 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['middleware' => ['jwt.auth']], function () {
-  Route::get('/auth/user','AuthController@getAuthUser');
-  Route::post('/task','TaskController@store');
-  Route::get('/task','TaskController@index');
-  Route::delete('/task/{id}','TaskController@destroy');
-  Route::get('/task/{id}','TaskController@show');
-  Route::patch('/task/{id}','TaskController@update');
-  Route::post('/task/status','TaskController@toggleStatus');
+    Route::get('/auth/user','AuthController@getAuthUser');
+    Route::post('/task','TaskController@store');
+    Route::get('/task','TaskController@index');
+    Route::delete('/task/{id}','TaskController@destroy');
+    Route::get('/task/{id}','TaskController@show');
+    Route::patch('/task/{id}','TaskController@update');
+    Route::post('/task/status','TaskController@toggleStatus');
+
+    Route::get('/sorties','SortiesController@index');
 
     Route::get('/configuration/fetch','ConfigurationController@index');
     Route::post('/configuration','ConfigurationController@store');

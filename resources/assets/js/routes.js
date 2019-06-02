@@ -36,6 +36,14 @@ let routes = [
                 component: require('./views/task/edit')
             },
             {
+                path: '/sorties',
+                component: require('./views/sorties/index')
+            },
+            {
+                path: '/sorties:id/edit',
+                component: require('./views/sorties/edit')
+            },
+            {
                 path: '/user',
                 component: require('./views/user/index')
             },
