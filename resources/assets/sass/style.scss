@@ -4,7 +4,9 @@ Author: Themedesigner
 Email: niravjoshi87@gmail.com
 File: scss
 */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
 @import './../plugins/bootstrap/sass/bootstrap.scss';
+@import 'argon.min.css';
 @import 'variable';
 @import 'app';
 @import 'pages';
@@ -25,4 +27,3 @@ File: scss
 @import './../plugins/toastr/toastr.min.css';
 @import 'color';
 @import 'custom';
-   

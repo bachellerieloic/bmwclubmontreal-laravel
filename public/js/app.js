@@ -30718,6 +30718,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -30808,175 +30833,145 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { attrs: { id: "wrapper" } }, [
-    _c(
-      "div",
-      {
-        staticClass: "login-register",
-        staticStyle: {
-          "background-image": "url(/images/background/background.jpg)"
-        }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "login-box card" },
-          [
-            _c("div", { staticClass: "card-body text-center" }, [
-              _c("img", {
-                attrs: { src: "/images/logo-bmw.png", width: "200px" }
-              }),
-              _vm._v(" "),
-              _c(
-                "form",
-                {
-                  staticClass: "form-horizontal form-material",
-                  attrs: { id: "loginform" },
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.submit($event)
-                    }
-                  }
-                },
-                [
-                  _c("h3", { staticClass: "box-title m-b-20" }, [
-                    _vm._v("Sign In")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group " }, [
-                    _c("div", { staticClass: "col-xs-12" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.loginForm.email,
-                            expression: "loginForm.email"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          name: "email",
-                          placeholder: "Email"
-                        },
-                        domProps: { value: _vm.loginForm.email },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.loginForm,
-                              "email",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("div", { staticClass: "col-xs-12" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.loginForm.password,
-                            expression: "loginForm.password"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "password",
-                          name: "password",
-                          placeholder: "Password"
-                        },
-                        domProps: { value: _vm.loginForm.password },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.loginForm,
-                              "password",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group m-b-0" }, [
-                    _c("div", { staticClass: "col-sm-12 text-center" }, [
-                      _c(
-                        "p",
-                        [
-                          _vm._v("Forgot your password? "),
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "text-info m-l-5",
-                              attrs: { to: "/password" }
-                            },
-                            [_c("b", [_vm._v("Reset here!")])]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        [
-                          _vm._v("Don't have an account? "),
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "text-info m-l-5",
-                              attrs: { to: "/register" }
-                            },
-                            [_c("b", [_vm._v("Sign Up")])]
-                          )
-                        ],
-                        1
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("guest-footer")
-          ],
-          1
-        )
-      ]
-    )
-  ])
+  return _c(
+    "section",
+    { attrs: { id: "wrapper" } },
+    [
+      _c("img", { attrs: { src: "/images/logo-bmw.png", width: "200px" } }),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("guest-footer")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group text-center m-t-20" }, [
-      _c("div", { staticClass: "col-xs-12" }, [
-        _c(
-          "button",
-          {
-            staticClass:
-              "btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("Log In")]
-        )
+    return _c("div", { staticClass: "container mt--8 pb-5" }, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-lg-5 col-md-7" }, [
+          _c("div", { staticClass: "card bg-secondary border-0 mb-0" }, [
+            _c("div", { staticClass: "card-header bg-transparent pb-5" }, [
+              _c("div", { staticClass: "text-muted text-center mt-2 mb-3" }, [
+                _c("small", [_vm._v("Sign in with")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "btn-wrapper text-center" }, [
+                _vm._v(
+                  "\n                                Test\n                        "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body px-lg-5 py-lg-5" }, [
+              _c("div", { staticClass: "text-center text-muted mb-4" }, [
+                _c("small", [_vm._v("Sign in with credentials")])
+              ]),
+              _vm._v(" "),
+              _c("form", { attrs: { role: "form" } }, [
+                _c("div", { staticClass: "form-group mb-3" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "input-group input-group-merge input-group-alternative"
+                    },
+                    [
+                      _c("div", { staticClass: "input-group-prepend" }, [
+                        _c("span", { staticClass: "input-group-text" }, [
+                          _c("i", { staticClass: "ni ni-email-83" })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { placeholder: "Email", type: "email" }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "input-group input-group-merge input-group-alternative"
+                    },
+                    [
+                      _c("div", { staticClass: "input-group-prepend" }, [
+                        _c("span", { staticClass: "input-group-text" }, [
+                          _c("i", { staticClass: "ni ni-lock-circle-open" })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { placeholder: "Password", type: "password" }
+                      })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "custom-control custom-control-alternative custom-checkbox"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: { id: " customCheckLogin", type: "checkbox" }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: " customCheckLogin" }
+                      },
+                      [
+                        _c("span", { staticClass: "text-muted" }, [
+                          _vm._v("Remember me")
+                        ])
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-center" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary my-4",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v("Sign in")]
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row mt-3" }, [
+            _c("div", { staticClass: "col-6" }, [
+              _c("a", { staticClass: "text-light", attrs: { href: "#" } }, [
+                _c("small", [_vm._v("Forgot password?")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6 text-right" }, [
+              _c("a", { staticClass: "text-light", attrs: { href: "#" } }, [
+                _c("small", [_vm._v("Create new account")])
+              ])
+            ])
+          ])
+        ])
       ])
     ])
   }
@@ -32591,7 +32586,7 @@ if (false) {
 /* 142 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleNotFoundError: Module not found: Error: Can't resolve '../fonts/nucleo-icons.eot' in 'C:\\Users\\bache\\web\\bmw\\resources\\assets\\plugins\\nucleo'\n    at factoryCallback (C:\\Users\\bache\\web\\bmw\\node_modules\\webpack\\lib\\Compilation.js:282:40)\n    at factory (C:\\Users\\bache\\web\\bmw\\node_modules\\webpack\\lib\\NormalModuleFactory.js:237:20)\n    at resolver (C:\\Users\\bache\\web\\bmw\\node_modules\\webpack\\lib\\NormalModuleFactory.js:60:20)\n    at asyncLib.parallel (C:\\Users\\bache\\web\\bmw\\node_modules\\webpack\\lib\\NormalModuleFactory.js:127:20)\n    at C:\\Users\\bache\\web\\bmw\\node_modules\\webpack\\node_modules\\async\\dist\\async.js:3888:9\n    at C:\\Users\\bache\\web\\bmw\\node_modules\\webpack\\node_modules\\async\\dist\\async.js:473:16\n    at iteratorCallback (C:\\Users\\bache\\web\\bmw\\node_modules\\webpack\\node_modules\\async\\dist\\async.js:1062:13)\n    at C:\\Users\\bache\\web\\bmw\\node_modules\\webpack\\node_modules\\async\\dist\\async.js:969:16\n    at C:\\Users\\bache\\web\\bmw\\node_modules\\webpack\\node_modules\\async\\dist\\async.js:3885:13\n    at resolvers.normal.resolve (C:\\Users\\bache\\web\\bmw\\node_modules\\webpack\\lib\\NormalModuleFactory.js:119:22)\n    at onError (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\Resolver.js:65:10)\n    at loggingCallbackWrapper (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at runAfter (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\Resolver.js:158:4)\n    at innerCallback (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\Resolver.js:146:3)\n    at loggingCallbackWrapper (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at next (C:\\Users\\bache\\web\\bmw\\node_modules\\tapable\\lib\\Tapable.js:252:11)\n    at C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\UnsafeCachePlugin.js:40:4\n    at loggingCallbackWrapper (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at runAfter (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\Resolver.js:158:4)\n    at innerCallback (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\Resolver.js:146:3)\n    at loggingCallbackWrapper (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at next (C:\\Users\\bache\\web\\bmw\\node_modules\\tapable\\lib\\Tapable.js:252:11)\n    at innerCallback (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\Resolver.js:144:11)\n    at loggingCallbackWrapper (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at next (C:\\Users\\bache\\web\\bmw\\node_modules\\tapable\\lib\\Tapable.js:249:35)\n    at resolver.doResolve.createInnerCallback (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:44:6)\n    at loggingCallbackWrapper (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at afterInnerCallback (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\Resolver.js:168:10)\n    at loggingCallbackWrapper (C:\\Users\\bache\\web\\bmw\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at next (C:\\Users\\bache\\web\\bmw\\node_modules\\tapable\\lib\\Tapable.js:252:11)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

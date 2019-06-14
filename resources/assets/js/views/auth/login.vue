@@ -1,36 +1,61 @@
 <template>
     <section id="wrapper">
-        <div class="login-register" style="background-image:url(/images/background/background.jpg);">
-            <div class="login-box card">
-            <div class="card-body text-center">
-                <img src="/images/logo-bmw.png" width="200px"/>
-                <form class="form-horizontal form-material" id="loginform" @submit.prevent="submit">
-                    <h3 class="box-title m-b-20">Sign In</h3>
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <input type="text" name="email" class="form-control" placeholder="Email" v-model="loginForm.email"> </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <input type="password" name="password" class="form-control" placeholder="Password" v-model="loginForm.password"> </div>
-                    </div>
-                    <div class="form-group text-center m-t-20">
-                        <div class="col-xs-12">
-                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
+        <img src="/images/logo-bmw.png" width="200px"/>
+        <div class="container mt--8 pb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-7">
+                    <div class="card bg-secondary border-0 mb-0">
+                        <div class="card-header bg-transparent pb-5">
+                            <div class="text-muted text-center mt-2 mb-3"><small>Sign in with</small></div>
+                            <div class="btn-wrapper text-center">
+                                    Test
+                            </div>
+                        </div>
+                        <div class="card-body px-lg-5 py-lg-5">
+                            <div class="text-center text-muted mb-4">
+                                <small>Sign in with credentials</small>
+                            </div>
+                            <form role="form">
+                                <div class="form-group mb-3">
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="Email" type="email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="Password" type="password">
+                                    </div>
+                                </div>
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
+                                    <label class="custom-control-label" for=" customCheckLogin">
+                                        <span class="text-muted">Remember me</span>
+                                    </label>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary my-4">Sign in</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="form-group m-b-0">
-                        <div class="col-sm-12 text-center">
-                            <p>Forgot your password? <router-link to="/password" class="text-info m-l-5"><b>Reset here!</b></router-link></p>
-                            <p>Don't have an account? <router-link to="/register" class="text-info m-l-5"><b>Sign Up</b></router-link></p>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <a href="#" class="text-light"><small>Forgot password?</small></a>
+                        </div>
+                        <div class="col-6 text-right">
+                            <a href="#" class="text-light"><small>Create new account</small></a>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
-            <guest-footer></guest-footer>
-          </div>
         </div>
-
+        <guest-footer></guest-footer>
     </section>
 </template>
 
