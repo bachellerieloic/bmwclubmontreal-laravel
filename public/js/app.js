@@ -30738,11 +30738,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -30835,14 +30830,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "section",
-    { attrs: { id: "wrapper" } },
-    [
-      _c("img", { attrs: { src: "/images/logo-bmw.png", width: "200px" } }),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("guest-footer")
-    ],
+    { attrs: { id: "login-wrapper" } },
+    [_vm._m(0), _vm._v(" "), _c("guest-footer")],
     1
   )
 }
@@ -30851,24 +30840,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container mt--8 pb-5" }, [
+    return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-lg-5 col-md-7" }, [
           _c("div", { staticClass: "card bg-secondary border-0 mb-0" }, [
-            _c("div", { staticClass: "card-header bg-transparent pb-5" }, [
-              _c("div", { staticClass: "text-muted text-center mt-2 mb-3" }, [
-                _c("small", [_vm._v("Sign in with")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "btn-wrapper text-center" }, [
-                _vm._v(
-                  "\n                                Test\n                        "
-                )
-              ])
-            ]),
-            _vm._v(" "),
             _c("div", { staticClass: "card-body px-lg-5 py-lg-5" }, [
               _c("div", { staticClass: "text-center text-muted mb-4" }, [
+                _c("img", {
+                  staticClass: "d-block",
+                  attrs: { src: "/images/logo-bmw.png", width: "200px" }
+                }),
+                _vm._v(" "),
                 _c("small", [_vm._v("Sign in with credentials")])
               ]),
               _vm._v(" "),

@@ -1,3 +1,22 @@
+html {
+    position: relative;
+    min-height: 100%;
+    background: #ffffff;
+}
+
+
+#root {
+    min-height: 100vh;
+}
+#login-wrapper {
+    position: absolute;
+    width: 100vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 #fileselector {
     margin: 10px;
 }
@@ -7,3 +26,4 @@
 .margin-correction {
     margin-right: 10px;
 }
+
