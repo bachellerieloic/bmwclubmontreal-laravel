@@ -4,53 +4,51 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-7">
-                    <div class="card bg-secondary border-0 mb-0">
-                        <div class="card-body px-lg-5 py-lg-5">
+                    <div class="card border mb-0">
+                        <img src="/images/logo-bmw.png" width="250" class="d-block mx-auto"/>
+                        <div class="card-body px-lg-5 pb-lg-4 pt-lg-3">
+
                             <div class="text-center text-muted mb-4">
-                                <img src="/images/logo-bmw.png" width="200px" class="d-block"/>
-                                <small>Sign in with credentials</small>
+                                <h4 class="mb-0">BMW CLUB MONTRÉAL</h4>
                             </div>
-                            <form role="form">
+
+                            <form role="form" id="loginform" @submit.prevent="submit">
+
                                 <div class="form-group mb-3">
                                     <div class="input-group input-group-merge input-group-alternative">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Email" type="email">
+                                        <input class="form-control" placeholder="Courriel" type="email" name="email" v-model="loginForm.email">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <div class="input-group input-group-merge input-group-alternative">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Password" type="password">
+                                        <input class="form-control" placeholder="Mot de passe" type="password" name="password" v-model="loginForm.password">
                                     </div>
                                 </div>
-                                <div class="custom-control custom-control-alternative custom-checkbox">
-                                    <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                                    <label class="custom-control-label" for=" customCheckLogin">
-                                        <span class="text-muted">Remember me</span>
-                                    </label>
-                                </div>
+
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary my-4">Sign in</button>
+                                    <button class="btn btn-outline-default waves-effect waves-light mt-4 mb-2" type="submit">Se Connecter</button>
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <a href="#" class="text-light"><small>Forgot password?</small></a>
-                        </div>
-                        <div class="col-6 text-right">
-                            <a href="#" class="text-light"><small>Create new account</small></a>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <router-link to="/password" class="text-muted m-l-5"><small>Mot de passe oublié ?</small></router-link>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <router-link to="/register" class="text-muted m-l-5"><small>Créer un nouveau compte</small></b></router-link>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <guest-footer></guest-footer>
     </section>
 </template>
 
@@ -62,13 +60,10 @@
         data() {
             return {
                 loginForm: {
-                    email: 'john.doe@example.com',
-                    password: 'abcd1234'
+                    email: '',
+                    password: ''
                 }
             }
-        },
-        components: {
-            GuestFooter
         },
         mounted(){
         },

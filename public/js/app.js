@@ -30736,8 +30736,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -30746,14 +30744,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             loginForm: {
-                email: 'john.doe@example.com',
-                password: 'abcd1234'
+                email: '',
+                password: ''
             }
         };
-    },
-
-    components: {
-        GuestFooter: __WEBPACK_IMPORTED_MODULE_1__layouts_guest_footer_vue___default.a
     },
     mounted: function mounted() {},
 
@@ -30828,133 +30822,204 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    { attrs: { id: "login-wrapper" } },
-    [_vm._m(0), _vm._v(" "), _c("guest-footer")],
-    1
-  )
+  return _c("section", { attrs: { id: "login-wrapper" } }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-lg-5 col-md-7" }, [
+          _c("div", { staticClass: "card border mb-0" }, [
+            _c("img", {
+              staticClass: "d-block mx-auto",
+              attrs: { src: "/images/logo-bmw.png", width: "250" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body px-lg-5 pb-lg-4 pt-lg-3" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  attrs: { role: "form", id: "loginform" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.submit($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "form-group mb-3" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "input-group input-group-merge input-group-alternative"
+                      },
+                      [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.loginForm.email,
+                              expression: "loginForm.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            placeholder: "Courriel",
+                            type: "email",
+                            name: "email"
+                          },
+                          domProps: { value: _vm.loginForm.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.loginForm,
+                                "email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "input-group input-group-merge input-group-alternative"
+                      },
+                      [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.loginForm.password,
+                              expression: "loginForm.password"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            placeholder: "Mot de passe",
+                            type: "password",
+                            name: "password"
+                          },
+                          domProps: { value: _vm.loginForm.password },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.loginForm,
+                                "password",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(3)
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "row mt-3" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-6" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "text-muted m-l-5",
+                        attrs: { to: "/password" }
+                      },
+                      [_c("small", [_vm._v("Mot de passe oublié ?")])]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-6 text-right" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "text-muted m-l-5",
+                        attrs: { to: "/register" }
+                      },
+                      [_c("small", [_vm._v("Créer un nouveau compte")])]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-lg-5 col-md-7" }, [
-          _c("div", { staticClass: "card bg-secondary border-0 mb-0" }, [
-            _c("div", { staticClass: "card-body px-lg-5 py-lg-5" }, [
-              _c("div", { staticClass: "text-center text-muted mb-4" }, [
-                _c("img", {
-                  staticClass: "d-block",
-                  attrs: { src: "/images/logo-bmw.png", width: "200px" }
-                }),
-                _vm._v(" "),
-                _c("small", [_vm._v("Sign in with credentials")])
-              ]),
-              _vm._v(" "),
-              _c("form", { attrs: { role: "form" } }, [
-                _c("div", { staticClass: "form-group mb-3" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "input-group input-group-merge input-group-alternative"
-                    },
-                    [
-                      _c("div", { staticClass: "input-group-prepend" }, [
-                        _c("span", { staticClass: "input-group-text" }, [
-                          _c("i", { staticClass: "ni ni-email-83" })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { placeholder: "Email", type: "email" }
-                      })
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "input-group input-group-merge input-group-alternative"
-                    },
-                    [
-                      _c("div", { staticClass: "input-group-prepend" }, [
-                        _c("span", { staticClass: "input-group-text" }, [
-                          _c("i", { staticClass: "ni ni-lock-circle-open" })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { placeholder: "Password", type: "password" }
-                      })
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "custom-control custom-control-alternative custom-checkbox"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: { id: " customCheckLogin", type: "checkbox" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: " customCheckLogin" }
-                      },
-                      [
-                        _c("span", { staticClass: "text-muted" }, [
-                          _vm._v("Remember me")
-                        ])
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-center" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary my-4",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Sign in")]
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row mt-3" }, [
-            _c("div", { staticClass: "col-6" }, [
-              _c("a", { staticClass: "text-light", attrs: { href: "#" } }, [
-                _c("small", [_vm._v("Forgot password?")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-6 text-right" }, [
-              _c("a", { staticClass: "text-light", attrs: { href: "#" } }, [
-                _c("small", [_vm._v("Create new account")])
-              ])
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "text-center text-muted mb-4" }, [
+      _c("h4", { staticClass: "mb-0" }, [_vm._v("BMW CLUB MONTRÉAL")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "ni ni-email-83" })
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "ni ni-lock-circle-open" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "btn btn-outline-default waves-effect waves-light mt-4 mb-2",
+          attrs: { type: "submit" }
+        },
+        [_vm._v("Se Connecter")]
+      )
     ])
   }
 ]

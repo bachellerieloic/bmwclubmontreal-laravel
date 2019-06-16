@@ -4159,8 +4159,14 @@ html {
 }
 
 #login-wrapper {
-  position: absolute;
+  background-image: url("/images/background/background.jpg");
+  background-size: cover;
   width: 100vw;
+  height: 100vh;
+}
+
+#login-wrapper .container {
+  position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
