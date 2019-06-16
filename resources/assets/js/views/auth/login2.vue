@@ -18,11 +18,6 @@
                         <div class="col-xs-12">
                             <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
                         </div>
-                        <div>
-                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                                test
-                            </button>
-                        </div>
                     </div>
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">

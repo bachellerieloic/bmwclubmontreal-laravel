@@ -76,5 +76,24 @@ export default {
         return value.toLowerCase().replace(/\b[a-z]/g, function(value) {
             return value.toUpperCase();
         });
+    },
+
+    notify(message, type) {
+        $.notify({
+            //options
+            message: message,
+
+        },{
+            //settings
+            type: type,
+            placement: {
+                from: "top",
+                align: "center"
+            },
+            animate: {
+                enter: 'animated fadeInDown',
+                exit: 'animated fadeOutUp'
+            },
+        });
     }
 }

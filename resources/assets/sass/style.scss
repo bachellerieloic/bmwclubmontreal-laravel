@@ -4,7 +4,7 @@ Author: Themedesigner
 Email: niravjoshi87@gmail.com
 File: scss
 */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 //@import './../plugins/bootstrap/sass/bootstrap.scss';
 @import 'argon.min.css';
 //@import 'variable';
@@ -20,7 +20,7 @@ File: scss
 @import './../plugins/nucleo/nucleo.css';
 @import './../plugins/quill/quill.core.css';
 @import './../plugins/select2/select2.min.css';
-@import './../plugins/sweetalert2/sweetalert2.min.css';
+@import './../plugins/sweetalert2/dist/sweetalert2.min.css';
 @import './../plugins/toastr/toastr.min.css';
 //@import 'color';
 @import 'custom';

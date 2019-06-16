@@ -259,6 +259,24 @@ module.exports = function normalizeComponent (
         return value.toLowerCase().replace(/\b[a-z]/g, function (value) {
             return value.toUpperCase();
         });
+    },
+    notify: function notify(message, type) {
+        $.notify({
+            //options
+            message: message
+
+        }, {
+            //settings
+            type: type,
+            placement: {
+                from: "top",
+                align: "center"
+            },
+            animate: {
+                enter: 'animated fadeInDown',
+                exit: 'animated fadeOutUp'
+            }
+        });
     }
 });
 
@@ -30680,8 +30698,6 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_helper__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layouts_guest_footer_vue__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layouts_guest_footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__layouts_guest_footer_vue__);
 //
 //
 //
@@ -30736,8 +30752,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -30758,10 +30772,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('/api/auth/login', this.loginForm).then(function (response) {
                 localStorage.setItem('auth_token', response.data.token);
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('auth_token');
-                toastr['success'](response.data.message);
+                __WEBPACK_IMPORTED_MODULE_0__services_helper__["a" /* default */].notify(response.data.message, 'success');
                 _this.$router.push('/home');
             }).catch(function (error) {
-                toastr['error'](error.response.data.message);
+                __WEBPACK_IMPORTED_MODULE_0__services_helper__["a" /* default */].notify(error.response.data.message, 'warning');
             });
         }
     }

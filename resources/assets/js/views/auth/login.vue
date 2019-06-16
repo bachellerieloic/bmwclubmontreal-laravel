@@ -41,7 +41,7 @@
                                     <router-link to="/password" class="text-muted m-l-5"><small>Mot de passe oublié ?</small></router-link>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <router-link to="/register" class="text-muted m-l-5"><small>Créer un nouveau compte</small></b></router-link>
+                                    <router-link to="/register" class="text-muted m-l-5"><small>Créer un nouveau compte</small></router-link>
                                 </div>
                             </div>
                         </div>
@@ -54,8 +54,6 @@
 
 <script>
     import helper from '../../services/helper'
-    import GuestFooter from '../../layouts/guest-footer.vue'
-
     export default {
         data() {
             return {
@@ -72,10 +70,10 @@
                 axios.post('/api/auth/login', this.loginForm).then(response =>  {
                     localStorage.setItem('auth_token',response.data.token);
                     axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('auth_token');
-                    toastr['success'](response.data.message);
+                    helper.notify(response.data.message, 'success');
                     this.$router.push('/home')
                 }).catch(error => {
-                    toastr['error'](error.response.data.message);
+                    helper.notify(error.response.data.message, 'warning');
                 });
             }
         }
