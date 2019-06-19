@@ -4160,14 +4160,16 @@ html {
   min-height: 100vh;
 }
 
-#login-wrapper {
+#login-wrapper,
+#register-wrapper {
   background-image: url("/images/background/background.jpg");
   background-size: cover;
   width: 100vw;
   height: 100vh;
 }
 
-#login-wrapper .container {
+#login-wrapper .container,
+#register-wrapper .container {
   position: absolute;
   top: 50%;
   left: 50%;
