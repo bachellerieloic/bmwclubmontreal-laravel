@@ -1,6 +1,6 @@
 <template>
     <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-        <div class="scrollbar-inner">
+        <div class="scroll-wrapper scrollbar-inner" style="position: relative;"><div class="scrollbar-inner scroll-content">
             <!-- Brand -->
             <div class="sidenav-header d-flex align-items-center">
                 <a class="navbar-brand" href="../../pages/dashboards/dashboard.html">
@@ -216,9 +216,8 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="width: 56px; left: 0px;"></div></div></div><div class="scroll-element scroll-y scroll-scrollx_visible"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="height: 0px;"></div></div></div></div>
     </nav>
-
 </template>
 
 <script>

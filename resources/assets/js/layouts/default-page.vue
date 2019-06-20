@@ -1,6 +1,5 @@
 <template>
-    <div id="main-wrapper">
-
+    <div id="">
         <app-sidebar></app-sidebar>
 
         <div class="main-content" id="panel">
@@ -38,20 +37,15 @@
             AppSidebar, AppFooter, AppTopNavbar
         },
         mounted() {
-            $('body').addClass("fix-header fix-sidebar card-no-border");
-            $("body").trigger("resize");
-            $(".fix-header .topbar").stick_in_parent();
-            $('.scroll-sidebar').slimScroll({
-                position: 'left'
-                , size: "5px"
-                , height: '100%'
-                , color: '#dcdcdc'
+            $(".sidenav").on("mouseenter", function() {
+                console.log('mouseenter');
+                $("body").hasClass("g-sidenav-pinned") || $("body").removeClass("g-sidenav-hide").removeClass("g-sidenav-hidden").addClass("g-sidenav-show");
             });
-            $('.message-scroll').slimScroll({
-                position: 'right'
-                , size: "5px"
-                , height: '570'
-                , color: '#dcdcdc'
+
+            $(".sidenav").on("mouseleave", function() {
+                $("body").hasClass("g-sidenav-pinned") || ($("body").removeClass("g-sidenav-show").addClass("g-sidenav-hide"), setTimeout(function () {
+                    $("body").removeClass("g-sidenav-hide").addClass("g-sidenav-hidden")
+                }, 300))
             });
 
             if(!this.getAuthUser('email')){
