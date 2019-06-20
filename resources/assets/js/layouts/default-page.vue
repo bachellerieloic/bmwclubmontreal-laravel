@@ -38,7 +38,6 @@
         },
         mounted() {
             $(".sidenav").on("mouseenter", function() {
-                console.log('mouseenter');
                 $("body").hasClass("g-sidenav-pinned") || $("body").removeClass("g-sidenav-hide").removeClass("g-sidenav-hidden").addClass("g-sidenav-show");
             });
 
