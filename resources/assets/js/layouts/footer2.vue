@@ -1,6 +1,7 @@
 <template>
-    <div class="right-sidebar">
-    </div>
+	<footer class="footer">
+        BMW Club Montreal
+    </footer>
 </template>
 
 <script>

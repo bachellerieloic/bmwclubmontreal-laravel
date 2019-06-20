@@ -1,24 +1,22 @@
 <template>
     <div id="main-wrapper">
-        <app-header></app-header>
+
         <app-sidebar></app-sidebar>
 
-        <div class="page-wrapper">
-            <div class="container-fluid">
+        <div class="main-content" id="panel">
+                <app-top-navbar></app-top-navbar>
                 <router-view></router-view>
-                <app-right-sidebar></app-right-sidebar>
-            </div>
-        	<app-footer></app-footer>
+            <app-footer></app-footer>
         </div>
+
     </div>
 </template>
 
 
 <script>
-    import AppHeader from './header.vue'
     import AppSidebar from './sidebar.vue'
     import AppFooter from './footer.vue'
-    import AppRightSidebar from './right-sidebar.vue'
+    import AppTopNavbar from './top-navbar.vue'
     import helper from '../services/helper'
     export default {
         methods : {
@@ -37,7 +35,7 @@
             }
         },
         components: {
-            AppHeader, AppSidebar, AppFooter, AppRightSidebar
+            AppSidebar, AppFooter, AppTopNavbar
         },
         mounted() {
             $('body').addClass("fix-header fix-sidebar card-no-border");
