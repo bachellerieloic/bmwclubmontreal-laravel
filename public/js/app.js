@@ -23892,7 +23892,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         $(".sidenav").on("mouseenter", function () {
-            console.log('mouseenter');
             $("body").hasClass("g-sidenav-pinned") || $("body").removeClass("g-sidenav-hide").removeClass("g-sidenav-hidden").addClass("g-sidenav-show");
         });
 
