@@ -33,7 +33,8 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <button class="btn btn-outline-default waves-effect waves-light mt-4 mb-2" type="submit">Se Connecter</button>
+                                    <div></div>
+                                    <button id="submit-login" v-bind:class="[isLoading ? 'loading' : '', 'btn btn-outline-default waves-effect waves-light mt-4 mb-2']" type="submit">Se Connecter</button>
                                 </div>
                             </form>
                             <div class="row mt-3">
@@ -60,20 +61,25 @@
                 loginForm: {
                     email: '',
                     password: ''
-                }
+                },
+                isLoading: false
             }
         },
         mounted(){
         },
         methods: {
             submit(e){
+                this.isLoading = true;
+
                 axios.post('/api/auth/login', this.loginForm).then(response =>  {
                     localStorage.setItem('auth_token',response.data.token);
                     axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('auth_token');
                     helper.notify(response.data.message, 'success');
-                    this.$router.push('/home')
+                    this.$router.push('/home');
+                    this.isLoading = false;
                 }).catch(error => {
                     helper.notify(error.response.data.message, 'warning');
+                    this.isLoading = false;
                 });
             }
         }

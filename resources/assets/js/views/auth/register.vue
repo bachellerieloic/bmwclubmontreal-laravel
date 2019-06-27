@@ -62,7 +62,7 @@
                                         <div class="custom-control custom-control-alternative custom-checkbox">
                                             <input class="custom-control-input" id="customCheckRegister" type="checkbox" v-model="registerForm.privacy_policy">
                                             <label class="custom-control-label" for="customCheckRegister">
-                                                <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+                                                <span class="text-muted">J'ai lu et j'accepte la <a href="#!">politique de confidentialité</a></span>
                                             </label>
                                         </div>
                                     </div>
