@@ -25642,7 +25642,71 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "nav",
+    {
+      staticClass:
+        "navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom"
+    },
+    [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c(
+          "div",
+          {
+            staticClass: "collapse navbar-collapse",
+            attrs: { id: "navbarSupportedContent" }
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "ul",
+              { staticClass: "navbar-nav align-items-center ml-auto ml-md-0" },
+              [
+                _c("li", { staticClass: "nav-item dropdown" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "dropdown-menu dropdown-menu-right" },
+                    [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "dropdown-divider" }),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { href: "#!" },
+                          on: { click: _vm.logout }
+                        },
+                        [
+                          _c("i", { staticClass: "ni ni-user-run" }),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("Logout")])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -25650,761 +25714,596 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "nav",
+      "form",
       {
-        staticClass:
-          "navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom"
+        staticClass: "navbar-search navbar-search-light form-inline mr-sm-3",
+        attrs: { id: "navbar-search-main" }
       },
       [
-        _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "form-group mb-0" }, [
           _c(
             "div",
             {
-              staticClass: "collapse navbar-collapse",
-              attrs: { id: "navbarSupportedContent" }
+              staticClass:
+                "input-group input-group-alternative input-group-merge"
             },
             [
-              _c(
-                "form",
-                {
-                  staticClass:
-                    "navbar-search navbar-search-light form-inline mr-sm-3",
-                  attrs: { id: "navbar-search-main" }
-                },
-                [
-                  _c("div", { staticClass: "form-group mb-0" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "input-group input-group-alternative input-group-merge"
-                      },
-                      [
-                        _c("div", { staticClass: "input-group-prepend" }, [
-                          _c("span", { staticClass: "input-group-text" }, [
-                            _c("i", { staticClass: "fas fa-search" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: { placeholder: "Search", type: "text" }
-                        })
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-action": "search-close",
-                        "data-target": "#navbar-search-main",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×")
-                      ])
-                    ]
-                  )
-                ]
-              ),
+              _c("div", { staticClass: "input-group-prepend" }, [
+                _c("span", { staticClass: "input-group-text" }, [
+                  _c("i", { staticClass: "fas fa-search" })
+                ])
+              ]),
               _vm._v(" "),
-              _c(
-                "ul",
-                { staticClass: "navbar-nav align-items-center ml-md-auto" },
-                [
-                  _c("li", { staticClass: "nav-item d-xl-none" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "pr-3 sidenav-toggler sidenav-toggler-dark",
-                        attrs: {
-                          "data-action": "sidenav-pin",
-                          "data-target": "#sidenav-main"
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "sidenav-toggler-inner" }, [
-                          _c("i", { staticClass: "sidenav-toggler-line" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "sidenav-toggler-line" }),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "sidenav-toggler-line" })
-                        ])
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item d-sm-none" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          href: "#",
-                          "data-action": "search-show",
-                          "data-target": "#navbar-search-main"
-                        }
-                      },
-                      [_c("i", { staticClass: "ni ni-zoom-split-in" })]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item dropdown" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          href: "#",
-                          role: "button",
-                          "data-toggle": "dropdown",
-                          "aria-haspopup": "true",
-                          "aria-expanded": "false"
-                        }
-                      },
-                      [_c("i", { staticClass: "ni ni-bell-55" })]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden"
-                      },
-                      [
-                        _c("div", { staticClass: "px-3 py-3" }, [
-                          _c("h6", { staticClass: "text-sm text-muted m-0" }, [
-                            _vm._v("You have "),
-                            _c("strong", { staticClass: "text-primary" }, [
-                              _vm._v("13")
-                            ]),
-                            _vm._v(" notifications.")
-                          ])
-                        ]),
-                        _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { placeholder: "Search", type: "text" }
+              })
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "close",
+            attrs: {
+              type: "button",
+              "data-action": "search-close",
+              "data-target": "#navbar-search-main",
+              "aria-label": "Close"
+            }
+          },
+          [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      { staticClass: "navbar-nav align-items-center ml-md-auto" },
+      [
+        _c("li", { staticClass: "nav-item d-xl-none" }, [
+          _c(
+            "div",
+            {
+              staticClass: "pr-3 sidenav-toggler sidenav-toggler-dark",
+              attrs: {
+                "data-action": "sidenav-pin",
+                "data-target": "#sidenav-main"
+              }
+            },
+            [
+              _c("div", { staticClass: "sidenav-toggler-inner" }, [
+                _c("i", { staticClass: "sidenav-toggler-line" }),
+                _vm._v(" "),
+                _c("i", { staticClass: "sidenav-toggler-line" }),
+                _vm._v(" "),
+                _c("i", { staticClass: "sidenav-toggler-line" })
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item d-sm-none" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                href: "#",
+                "data-action": "search-show",
+                "data-target": "#navbar-search-main"
+              }
+            },
+            [_c("i", { staticClass: "ni ni-zoom-split-in" })]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                href: "#",
+                role: "button",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "ni ni-bell-55" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden"
+            },
+            [
+              _c("div", { staticClass: "px-3 py-3" }, [
+                _c("h6", { staticClass: "text-sm text-muted m-0" }, [
+                  _vm._v("You have "),
+                  _c("strong", { staticClass: "text-primary" }, [_vm._v("13")]),
+                  _vm._v(" notifications.")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "list-group list-group-flush" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "list-group-item list-group-item-action",
+                    attrs: { href: "#!" }
+                  },
+                  [
+                    _c("div", { staticClass: "row align-items-center" }, [
+                      _c("div", { staticClass: "col-auto" }, [
+                        _c("img", {
+                          staticClass: "avatar rounded-circle",
+                          attrs: {
+                            alt: "Image placeholder",
+                            src: "images/theme/team-1.jpg"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col ml--2" }, [
                         _c(
                           "div",
-                          { staticClass: "list-group list-group-flush" },
+                          {
+                            staticClass:
+                              "d-flex justify-content-between align-items-center"
+                          },
                           [
-                            _c(
-                              "a",
-                              {
-                                staticClass:
-                                  "list-group-item list-group-item-action",
-                                attrs: { href: "#!" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "row align-items-center" },
-                                  [
-                                    _c("div", { staticClass: "col-auto" }, [
-                                      _c("img", {
-                                        staticClass: "avatar rounded-circle",
-                                        attrs: {
-                                          alt: "Image placeholder",
-                                          src: "images/theme/team-1.jpg"
-                                        }
-                                      })
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "col ml--2" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "d-flex justify-content-between align-items-center"
-                                        },
-                                        [
-                                          _c("div", [
-                                            _c(
-                                              "h4",
-                                              { staticClass: "mb-0 text-sm" },
-                                              [_vm._v("John Snow")]
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "text-right text-muted"
-                                            },
-                                            [_c("small", [_vm._v("2 hrs ago")])]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "text-sm mb-0" }, [
-                                        _vm._v(
-                                          "Let's meet at Starbucks at 11:30. Wdyt?"
-                                        )
-                                      ])
-                                    ])
-                                  ]
-                                )
-                              ]
-                            ),
+                            _c("div", [
+                              _c("h4", { staticClass: "mb-0 text-sm" }, [
+                                _vm._v("John Snow")
+                              ])
+                            ]),
                             _vm._v(" "),
                             _c(
-                              "a",
-                              {
-                                staticClass:
-                                  "list-group-item list-group-item-action",
-                                attrs: { href: "#!" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "row align-items-center" },
-                                  [
-                                    _c("div", { staticClass: "col-auto" }, [
-                                      _c("img", {
-                                        staticClass: "avatar rounded-circle",
-                                        attrs: {
-                                          alt: "Image placeholder",
-                                          src: "images/theme/team-2.jpg"
-                                        }
-                                      })
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "col ml--2" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "d-flex justify-content-between align-items-center"
-                                        },
-                                        [
-                                          _c("div", [
-                                            _c(
-                                              "h4",
-                                              { staticClass: "mb-0 text-sm" },
-                                              [_vm._v("John Snow")]
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "text-right text-muted"
-                                            },
-                                            [_c("small", [_vm._v("3 hrs ago")])]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "text-sm mb-0" }, [
-                                        _vm._v(
-                                          "A new issue has been reported for Argon."
-                                        )
-                                      ])
-                                    ])
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass:
-                                  "list-group-item list-group-item-action",
-                                attrs: { href: "#!" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "row align-items-center" },
-                                  [
-                                    _c("div", { staticClass: "col-auto" }, [
-                                      _c("img", {
-                                        staticClass: "avatar rounded-circle",
-                                        attrs: {
-                                          alt: "Image placeholder",
-                                          src: "images/theme/team-3.jpg"
-                                        }
-                                      })
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "col ml--2" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "d-flex justify-content-between align-items-center"
-                                        },
-                                        [
-                                          _c("div", [
-                                            _c(
-                                              "h4",
-                                              { staticClass: "mb-0 text-sm" },
-                                              [_vm._v("John Snow")]
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "text-right text-muted"
-                                            },
-                                            [_c("small", [_vm._v("5 hrs ago")])]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "text-sm mb-0" }, [
-                                        _vm._v(
-                                          "Your posts have been liked a lot."
-                                        )
-                                      ])
-                                    ])
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass:
-                                  "list-group-item list-group-item-action",
-                                attrs: { href: "#!" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "row align-items-center" },
-                                  [
-                                    _c("div", { staticClass: "col-auto" }, [
-                                      _c("img", {
-                                        staticClass: "avatar rounded-circle",
-                                        attrs: {
-                                          alt: "Image placeholder",
-                                          src: "images/theme/team-4.jpg"
-                                        }
-                                      })
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "col ml--2" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "d-flex justify-content-between align-items-center"
-                                        },
-                                        [
-                                          _c("div", [
-                                            _c(
-                                              "h4",
-                                              { staticClass: "mb-0 text-sm" },
-                                              [_vm._v("John Snow")]
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "text-right text-muted"
-                                            },
-                                            [_c("small", [_vm._v("2 hrs ago")])]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "text-sm mb-0" }, [
-                                        _vm._v(
-                                          "Let's meet at Starbucks at 11:30. Wdyt?"
-                                        )
-                                      ])
-                                    ])
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass:
-                                  "list-group-item list-group-item-action",
-                                attrs: { href: "#!" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "row align-items-center" },
-                                  [
-                                    _c("div", { staticClass: "col-auto" }, [
-                                      _c("img", {
-                                        staticClass: "avatar rounded-circle",
-                                        attrs: {
-                                          alt: "Image placeholder",
-                                          src: "images/theme/team-5.jpg"
-                                        }
-                                      })
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("div", { staticClass: "col ml--2" }, [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "d-flex justify-content-between align-items-center"
-                                        },
-                                        [
-                                          _c("div", [
-                                            _c(
-                                              "h4",
-                                              { staticClass: "mb-0 text-sm" },
-                                              [_vm._v("John Snow")]
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "text-right text-muted"
-                                            },
-                                            [_c("small", [_vm._v("3 hrs ago")])]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "text-sm mb-0" }, [
-                                        _vm._v(
-                                          "A new issue has been reported for Argon."
-                                        )
-                                      ])
-                                    ])
-                                  ]
-                                )
-                              ]
+                              "div",
+                              { staticClass: "text-right text-muted" },
+                              [_c("small", [_vm._v("2 hrs ago")])]
                             )
                           ]
                         ),
                         _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "dropdown-item text-center text-primary font-weight-bold py-3",
-                            attrs: { href: "#!" }
-                          },
-                          [_vm._v("View all")]
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item dropdown" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          href: "#",
-                          role: "button",
-                          "data-toggle": "dropdown",
-                          "aria-haspopup": "true",
-                          "aria-expanded": "false"
-                        }
-                      },
-                      [_c("i", { staticClass: "ni ni-ungroup" })]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default dropdown-menu-right"
-                      },
-                      [
-                        _c("div", { staticClass: "row shortcuts px-4" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "col-4 shortcut-item",
-                              attrs: { href: "#!" }
-                            },
-                            [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "shortcut-media avatar rounded-circle bg-gradient-red"
-                                },
-                                [
-                                  _c("i", {
-                                    staticClass: "ni ni-calendar-grid-58"
-                                  })
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("small", [_vm._v("Calendar")])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "col-4 shortcut-item",
-                              attrs: { href: "#!" }
-                            },
-                            [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "shortcut-media avatar rounded-circle bg-gradient-orange"
-                                },
-                                [_c("i", { staticClass: "ni ni-email-83" })]
-                              ),
-                              _vm._v(" "),
-                              _c("small", [_vm._v("Email")])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "col-4 shortcut-item",
-                              attrs: { href: "#!" }
-                            },
-                            [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "shortcut-media avatar rounded-circle bg-gradient-info"
-                                },
-                                [_c("i", { staticClass: "ni ni-credit-card" })]
-                              ),
-                              _vm._v(" "),
-                              _c("small", [_vm._v("Payments")])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "col-4 shortcut-item",
-                              attrs: { href: "#!" }
-                            },
-                            [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "shortcut-media avatar rounded-circle bg-gradient-green"
-                                },
-                                [_c("i", { staticClass: "ni ni-books" })]
-                              ),
-                              _vm._v(" "),
-                              _c("small", [_vm._v("Reports")])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "col-4 shortcut-item",
-                              attrs: { href: "#!" }
-                            },
-                            [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "shortcut-media avatar rounded-circle bg-gradient-purple"
-                                },
-                                [_c("i", { staticClass: "ni ni-pin-3" })]
-                              ),
-                              _vm._v(" "),
-                              _c("small", [_vm._v("Maps")])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "col-4 shortcut-item",
-                              attrs: { href: "#!" }
-                            },
-                            [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "shortcut-media avatar rounded-circle bg-gradient-yellow"
-                                },
-                                [_c("i", { staticClass: "ni ni-basket" })]
-                              ),
-                              _vm._v(" "),
-                              _c("small", [_vm._v("Shop")])
-                            ]
-                          )
+                        _c("p", { staticClass: "text-sm mb-0" }, [
+                          _vm._v("Let's meet at Starbucks at 11:30. Wdyt?")
                         ])
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "ul",
-                {
-                  staticClass: "navbar-nav align-items-center ml-auto ml-md-0"
-                },
-                [
-                  _c("li", { staticClass: "nav-item dropdown" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link pr-0",
-                        attrs: {
-                          href: "#",
-                          role: "button",
-                          "data-toggle": "dropdown",
-                          "aria-haspopup": "true",
-                          "aria-expanded": "false"
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "media align-items-center" }, [
-                          _c(
-                            "span",
-                            { staticClass: "avatar avatar-sm rounded-circle" },
-                            [
-                              _c("img", {
-                                attrs: {
-                                  alt: "Image placeholder",
-                                  src: "images/theme/team-4.jpg"
-                                }
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass: "media-body ml-2 d-none d-lg-block"
-                            },
-                            [
-                              _c(
-                                "span",
-                                {
-                                  staticClass: "mb-0 text-sm  font-weight-bold"
-                                },
-                                [_vm._v("John Snow")]
-                              )
-                            ]
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "dropdown-menu dropdown-menu-right" },
-                      [
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "list-group-item list-group-item-action",
+                    attrs: { href: "#!" }
+                  },
+                  [
+                    _c("div", { staticClass: "row align-items-center" }, [
+                      _c("div", { staticClass: "col-auto" }, [
+                        _c("img", {
+                          staticClass: "avatar rounded-circle",
+                          attrs: {
+                            alt: "Image placeholder",
+                            src: "images/theme/team-2.jpg"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col ml--2" }, [
                         _c(
                           "div",
-                          { staticClass: "dropdown-header noti-title" },
+                          {
+                            staticClass:
+                              "d-flex justify-content-between align-items-center"
+                          },
                           [
-                            _c("h6", { staticClass: "text-overflow m-0" }, [
-                              _vm._v("Welcome!")
-                            ])
+                            _c("div", [
+                              _c("h4", { staticClass: "mb-0 text-sm" }, [
+                                _vm._v("John Snow")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "text-right text-muted" },
+                              [_c("small", [_vm._v("3 hrs ago")])]
+                            )
                           ]
                         ),
                         _vm._v(" "),
+                        _c("p", { staticClass: "text-sm mb-0" }, [
+                          _vm._v("A new issue has been reported for Argon.")
+                        ])
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "list-group-item list-group-item-action",
+                    attrs: { href: "#!" }
+                  },
+                  [
+                    _c("div", { staticClass: "row align-items-center" }, [
+                      _c("div", { staticClass: "col-auto" }, [
+                        _c("img", {
+                          staticClass: "avatar rounded-circle",
+                          attrs: {
+                            alt: "Image placeholder",
+                            src: "images/theme/team-3.jpg"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col ml--2" }, [
                         _c(
-                          "a",
+                          "div",
                           {
-                            staticClass: "dropdown-item",
-                            attrs: { href: "#!" }
+                            staticClass:
+                              "d-flex justify-content-between align-items-center"
                           },
                           [
-                            _c("i", { staticClass: "ni ni-single-02" }),
+                            _c("div", [
+                              _c("h4", { staticClass: "mb-0 text-sm" }, [
+                                _vm._v("John Snow")
+                              ])
+                            ]),
                             _vm._v(" "),
-                            _c("span", [_vm._v("My profile")])
+                            _c(
+                              "div",
+                              { staticClass: "text-right text-muted" },
+                              [_c("small", [_vm._v("5 hrs ago")])]
+                            )
                           ]
                         ),
                         _vm._v(" "),
+                        _c("p", { staticClass: "text-sm mb-0" }, [
+                          _vm._v("Your posts have been liked a lot.")
+                        ])
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "list-group-item list-group-item-action",
+                    attrs: { href: "#!" }
+                  },
+                  [
+                    _c("div", { staticClass: "row align-items-center" }, [
+                      _c("div", { staticClass: "col-auto" }, [
+                        _c("img", {
+                          staticClass: "avatar rounded-circle",
+                          attrs: {
+                            alt: "Image placeholder",
+                            src: "images/theme/team-4.jpg"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col ml--2" }, [
                         _c(
-                          "a",
+                          "div",
                           {
-                            staticClass: "dropdown-item",
-                            attrs: { href: "#!" }
+                            staticClass:
+                              "d-flex justify-content-between align-items-center"
                           },
                           [
-                            _c("i", { staticClass: "ni ni-settings-gear-65" }),
+                            _c("div", [
+                              _c("h4", { staticClass: "mb-0 text-sm" }, [
+                                _vm._v("John Snow")
+                              ])
+                            ]),
                             _vm._v(" "),
-                            _c("span", [_vm._v("Settings")])
+                            _c(
+                              "div",
+                              { staticClass: "text-right text-muted" },
+                              [_c("small", [_vm._v("2 hrs ago")])]
+                            )
                           ]
                         ),
                         _vm._v(" "),
+                        _c("p", { staticClass: "text-sm mb-0" }, [
+                          _vm._v("Let's meet at Starbucks at 11:30. Wdyt?")
+                        ])
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "list-group-item list-group-item-action",
+                    attrs: { href: "#!" }
+                  },
+                  [
+                    _c("div", { staticClass: "row align-items-center" }, [
+                      _c("div", { staticClass: "col-auto" }, [
+                        _c("img", {
+                          staticClass: "avatar rounded-circle",
+                          attrs: {
+                            alt: "Image placeholder",
+                            src: "images/theme/team-5.jpg"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col ml--2" }, [
                         _c(
-                          "a",
+                          "div",
                           {
-                            staticClass: "dropdown-item",
-                            attrs: { href: "#!" }
+                            staticClass:
+                              "d-flex justify-content-between align-items-center"
                           },
                           [
-                            _c("i", { staticClass: "ni ni-calendar-grid-58" }),
+                            _c("div", [
+                              _c("h4", { staticClass: "mb-0 text-sm" }, [
+                                _vm._v("John Snow")
+                              ])
+                            ]),
                             _vm._v(" "),
-                            _c("span", [_vm._v("Activity")])
+                            _c(
+                              "div",
+                              { staticClass: "text-right text-muted" },
+                              [_c("small", [_vm._v("3 hrs ago")])]
+                            )
                           ]
                         ),
                         _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            attrs: { href: "#!" }
-                          },
-                          [
-                            _c("i", { staticClass: "ni ni-support-16" }),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Support")])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "dropdown-divider" }),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "dropdown-item",
-                            attrs: { href: "#!" }
-                          },
-                          [
-                            _c("i", { staticClass: "ni ni-user-run" }),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("Logout")])
-                          ]
-                        )
-                      ]
-                    )
-                  ])
-                ]
+                        _c("p", { staticClass: "text-sm mb-0" }, [
+                          _vm._v("A new issue has been reported for Argon.")
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "dropdown-item text-center text-primary font-weight-bold py-3",
+                  attrs: { href: "#!" }
+                },
+                [_vm._v("View all")]
               )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item dropdown" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                href: "#",
+                role: "button",
+                "data-toggle": "dropdown",
+                "aria-haspopup": "true",
+                "aria-expanded": "false"
+              }
+            },
+            [_c("i", { staticClass: "ni ni-ungroup" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default dropdown-menu-right"
+            },
+            [
+              _c("div", { staticClass: "row shortcuts px-4" }, [
+                _c(
+                  "a",
+                  { staticClass: "col-4 shortcut-item", attrs: { href: "#!" } },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "shortcut-media avatar rounded-circle bg-gradient-red"
+                      },
+                      [_c("i", { staticClass: "ni ni-calendar-grid-58" })]
+                    ),
+                    _vm._v(" "),
+                    _c("small", [_vm._v("Calendar")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "col-4 shortcut-item", attrs: { href: "#!" } },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "shortcut-media avatar rounded-circle bg-gradient-orange"
+                      },
+                      [_c("i", { staticClass: "ni ni-email-83" })]
+                    ),
+                    _vm._v(" "),
+                    _c("small", [_vm._v("Email")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "col-4 shortcut-item", attrs: { href: "#!" } },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "shortcut-media avatar rounded-circle bg-gradient-info"
+                      },
+                      [_c("i", { staticClass: "ni ni-credit-card" })]
+                    ),
+                    _vm._v(" "),
+                    _c("small", [_vm._v("Payments")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "col-4 shortcut-item", attrs: { href: "#!" } },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "shortcut-media avatar rounded-circle bg-gradient-green"
+                      },
+                      [_c("i", { staticClass: "ni ni-books" })]
+                    ),
+                    _vm._v(" "),
+                    _c("small", [_vm._v("Reports")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "col-4 shortcut-item", attrs: { href: "#!" } },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "shortcut-media avatar rounded-circle bg-gradient-purple"
+                      },
+                      [_c("i", { staticClass: "ni ni-pin-3" })]
+                    ),
+                    _vm._v(" "),
+                    _c("small", [_vm._v("Maps")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "col-4 shortcut-item", attrs: { href: "#!" } },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "shortcut-media avatar rounded-circle bg-gradient-yellow"
+                      },
+                      [_c("i", { staticClass: "ni ni-basket" })]
+                    ),
+                    _vm._v(" "),
+                    _c("small", [_vm._v("Shop")])
+                  ]
+                )
+              ])
             ]
           )
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "nav-link pr-0",
+        attrs: {
+          href: "#",
+          role: "button",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [
+        _c("div", { staticClass: "media align-items-center" }, [
+          _c("span", { staticClass: "avatar avatar-sm rounded-circle" }, [
+            _c("img", {
+              attrs: {
+                alt: "Image placeholder",
+                src: "images/theme/team-4.jpg"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "media-body ml-2 d-none d-lg-block" }, [
+            _c("span", { staticClass: "mb-0 text-sm  font-weight-bold" }, [
+              _vm._v("John Snow")
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "dropdown-header noti-title" }, [
+      _c("h6", { staticClass: "text-overflow m-0" }, [_vm._v("Welcome!")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#!" } }, [
+      _c("i", { staticClass: "ni ni-single-02" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("My profile")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#!" } }, [
+      _c("i", { staticClass: "ni ni-settings-gear-65" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Settings")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#!" } }, [
+      _c("i", { staticClass: "ni ni-calendar-grid-58" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Activity")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#!" } }, [
+      _c("i", { staticClass: "ni ni-support-16" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Support")])
+    ])
   }
 ]
 render._withStripped = true
