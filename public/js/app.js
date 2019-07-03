@@ -25666,7 +25666,36 @@ var render = function() {
               { staticClass: "navbar-nav align-items-center ml-auto ml-md-0" },
               [
                 _c("li", { staticClass: "nav-item dropdown" }, [
-                  _vm._m(2),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link pr-0",
+                      attrs: {
+                        href: "#",
+                        role: "button",
+                        "data-toggle": "dropdown",
+                        "aria-haspopup": "true",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "media align-items-center" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "media-body ml-2 d-none d-lg-block" },
+                          [
+                            _c(
+                              "span",
+                              { staticClass: "mb-0 text-sm  font-weight-bold" },
+                              [_vm._v(_vm._s(_vm.getAuthUserFullName()))]
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -26225,37 +26254,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "nav-link pr-0",
-        attrs: {
-          href: "#",
-          role: "button",
-          "data-toggle": "dropdown",
-          "aria-haspopup": "true",
-          "aria-expanded": "false"
-        }
-      },
-      [
-        _c("div", { staticClass: "media align-items-center" }, [
-          _c("span", { staticClass: "avatar avatar-sm rounded-circle" }, [
-            _c("img", {
-              attrs: {
-                alt: "Image placeholder",
-                src: "images/theme/team-4.jpg"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "media-body ml-2 d-none d-lg-block" }, [
-            _c("span", { staticClass: "mb-0 text-sm  font-weight-bold" }, [
-              _vm._v("John Snow")
-            ])
-          ])
-        ])
-      ]
-    )
+    return _c("span", { staticClass: "avatar avatar-sm rounded-circle" }, [
+      _c("img", {
+        attrs: { alt: "Image placeholder", src: "images/theme/team-4.jpg" }
+      })
+    ])
   },
   function() {
     var _vm = this
