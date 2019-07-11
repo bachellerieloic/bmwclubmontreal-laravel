@@ -25746,7 +25746,7 @@ var content = __webpack_require__(71);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("5233c9ca", content, false, {});
+var update = __webpack_require__(8)("4ad00c03", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -32863,7 +32863,7 @@ var content = __webpack_require__(87);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("6f0253b4", content, false, {});
+var update = __webpack_require__(8)("2db5c661", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -33022,7 +33022,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".range-slider {\r\n  display: inline-block;\r\n  padding: 0 10px;\r\n  height: 20px;\r\n  width: 130px;\r\n}\r\n\r\n.range-slider-inner {\r\n  display: inline-block;\r\n  position: relative;\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.range-slider-rail,\r\n.range-slider-fill {\r\n  display: block;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 0;\r\n  height: 4px;\r\n  border-radius: 2px;\r\n  -webkit-transform: translateY(-50%);\r\n      -ms-transform: translateY(-50%);\r\n          transform: translateY(-50%);\r\n}\r\n\r\n.range-slider-rail {\r\n  width: 100%;\r\n  background-color: #e2e2e2;\r\n}\r\n\r\n.range-slider-fill {\r\n  background-color: #21fb92;\r\n}\r\n\r\n.range-slider-knob {\r\n  display: block;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 0;\r\n  box-sizing: border-box;\r\n  height: 20px;\r\n  width: 20px;\r\n  border: 1px solid #f5f5f5;\r\n  border-radius: 50%;\r\n  background-color: #fff;\r\n  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);\r\n  -webkit-transform: translate(-50%, -50%);\r\n      -ms-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  cursor: pointer;\r\n}\r\n\r\n.range-slider-hidden {\r\n  display: none;\r\n}\r\n", ""]);
+exports.push([module.i, ".range-slider {\n  display: inline-block;\n  padding: 0 10px;\n  height: 20px;\n  width: 130px;\n}\n\n.range-slider-inner {\n  display: inline-block;\n  position: relative;\n  height: 100%;\n  width: 100%;\n}\n\n.range-slider-rail,\n.range-slider-fill {\n  display: block;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  height: 4px;\n  border-radius: 2px;\n  -webkit-transform: translateY(-50%);\n      -ms-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n\n.range-slider-rail {\n  width: 100%;\n  background-color: #e2e2e2;\n}\n\n.range-slider-fill {\n  background-color: #21fb92;\n}\n\n.range-slider-knob {\n  display: block;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  box-sizing: border-box;\n  height: 20px;\n  width: 20px;\n  border: 1px solid #f5f5f5;\n  border-radius: 50%;\n  background-color: #fff;\n  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);\n  -webkit-transform: translate(-50%, -50%);\n      -ms-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  cursor: pointer;\n}\n\n.range-slider-hidden {\n  display: none;\n}\n", ""]);
 
 // exports
 
@@ -34629,7 +34629,7 @@ var content = __webpack_require__(100);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("8dc62bda", content, false, {});
+var update = __webpack_require__(8)("17dd6acc", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags

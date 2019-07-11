@@ -13,9 +13,17 @@ class CreateSortiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sorties', function (Blueprint $table) {
+        Schema::create('trips', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->string('departure_address');
+            $table->string('arrival_address');
+            $table->dateTime('start_date');
+            $table->stdateTime('end_date');
+            $table->text('description');
+            $table->boolean('is_active');
+
+
         });
     }
 
