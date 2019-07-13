@@ -14,7 +14,10 @@ class CreateHostingUsersTable extends Migration
     public function up()
     {
         Schema::create('hosting_users', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id');
+            $table->integer('hosting_id');
+            $table->integer('user_id');
+            $table->integer('bed_available');
             $table->timestamps();
         });
     }

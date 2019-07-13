@@ -15,6 +15,8 @@ class CreateTripFilesTable extends Migration
     {
         Schema::create('trip_files', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('trip_id');
+            $table->integer('file_id');
             $table->timestamps();
         });
     }

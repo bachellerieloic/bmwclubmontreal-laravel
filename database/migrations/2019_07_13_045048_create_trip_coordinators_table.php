@@ -15,6 +15,8 @@ class CreateTripCoordinatorsTable extends Migration
     {
         Schema::create('trip_coordinators', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('trip_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

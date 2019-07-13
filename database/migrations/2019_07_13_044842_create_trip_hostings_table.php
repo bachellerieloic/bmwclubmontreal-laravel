@@ -15,6 +15,8 @@ class CreateTripHostingsTable extends Migration
     {
         Schema::create('trip_hostings', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('trip_id');
+            $table->integer('hosting_id');
             $table->timestamps();
         });
     }

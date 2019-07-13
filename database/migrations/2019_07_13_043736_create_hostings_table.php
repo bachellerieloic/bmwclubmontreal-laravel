@@ -15,6 +15,12 @@ class CreateHostingsTable extends Migration
     {
         Schema::create('hostings', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('address');
+            $table->string('city');
+            $table->string('zip_code');
+            $table->string('county');
             $table->timestamps();
         });
     }
