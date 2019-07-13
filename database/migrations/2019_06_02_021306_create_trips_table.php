@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSortiesTable extends Migration
+class CreateTripsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,7 +19,7 @@ class CreateSortiesTable extends Migration
             $table->string('departure_address');
             $table->string('arrival_address');
             $table->dateTime('start_date');
-            $table->stdateTime('end_date');
+            $table->dateTime('end_date');
             $table->text('description');
             $table->boolean('is_active');
 
@@ -34,6 +34,6 @@ class CreateSortiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sorties');
+        Schema::dropIfExists('trips');
     }
 }

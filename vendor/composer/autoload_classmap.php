@@ -26,6 +26,7 @@ return array(
     'App\\Http\\Controllers\\TaskController' => $baseDir . '/app/Http/Controllers/TaskController.php',
     'App\\Http\\Controllers\\TodoController' => $baseDir . '/app/Http/Controllers/TodoController.php',
     'App\\Http\\Controllers\\TripCoordinatorController' => $baseDir . '/app/Http/Controllers/TripCoordinatorController.php',
+    'App\\Http\\Controllers\\TripFileController' => $baseDir . '/app/Http/Controllers/TripFileController.php',
     'App\\Http\\Controllers\\TripGuideController' => $baseDir . '/app/Http/Controllers/TripGuideController.php',
     'App\\Http\\Controllers\\TripHostingController' => $baseDir . '/app/Http/Controllers/TripHostingController.php',
     'App\\Http\\Controllers\\TripUserController' => $baseDir . '/app/Http/Controllers/TripUserController.php',

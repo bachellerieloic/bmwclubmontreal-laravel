@@ -434,6 +434,7 @@ class ComposerStaticInit2f3d02445770d2e13035055e5e18ebbe
         'App\\Http\\Controllers\\TaskController' => __DIR__ . '/../..' . '/app/Http/Controllers/TaskController.php',
         'App\\Http\\Controllers\\TodoController' => __DIR__ . '/../..' . '/app/Http/Controllers/TodoController.php',
         'App\\Http\\Controllers\\TripCoordinatorController' => __DIR__ . '/../..' . '/app/Http/Controllers/TripCoordinatorController.php',
+        'App\\Http\\Controllers\\TripFileController' => __DIR__ . '/../..' . '/app/Http/Controllers/TripFileController.php',
         'App\\Http\\Controllers\\TripGuideController' => __DIR__ . '/../..' . '/app/Http/Controllers/TripGuideController.php',
         'App\\Http\\Controllers\\TripHostingController' => __DIR__ . '/../..' . '/app/Http/Controllers/TripHostingController.php',
         'App\\Http\\Controllers\\TripUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/TripUserController.php',
