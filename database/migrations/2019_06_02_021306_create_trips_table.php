@@ -22,8 +22,6 @@ class CreateTripsTable extends Migration
             $table->dateTime('end_date');
             $table->text('description');
             $table->boolean('is_active');
-
-
         });
     }
 

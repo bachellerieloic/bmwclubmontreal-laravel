@@ -52,10 +52,10 @@
                             <div class="collapse" id="navbar-sorties">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <router-link to="/user" class="nav-link">Liste des sorties</router-link>
+                                        <router-link to="/sorties" class="nav-link">Liste des sorties</router-link>
                                     </li>
                                     <li class="nav-item">
-                                        <router-link to="/add-user" class="nav-link">Nouvelle sortie</router-link>
+                                        <router-link to="/sorties" class="nav-link">Nouvelle sortie</router-link>
                                     </li>
                                 </ul>
                             </div>
