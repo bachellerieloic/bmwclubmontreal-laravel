@@ -47,10 +47,11 @@ class AuthController extends Controller
         }
 
         $user = JWTAuth::parseToken()->authenticate();
+        $role = $user->getRoleNames()[0]; //returns only one role
         $profile = $user->Profile;
         $social_auth = ($user->password) ? 0 : 1;
 
-        return response()->json(compact('user','profile','social_auth'));
+        return response()->json(compact('user','profile','social_auth', 'role'));
     }
 
     public function check()

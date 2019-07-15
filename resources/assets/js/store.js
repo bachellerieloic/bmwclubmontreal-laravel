@@ -10,7 +10,8 @@ const store = new Vuex.Store({
 			first_name: '',
 			last_name: '',
 			email: '',
-			avatar: ''
+			avatar: '',
+			role: ''
 		},
 		config: {
 			company_name: '',

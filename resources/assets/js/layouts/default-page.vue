@@ -31,6 +31,9 @@
             },
             getAuthUser(name){
                 return this.$store.getters.getAuthUser(name);
+            },
+            isAdmin() {
+                return this.$store.getters.getAuthUser('role') === 'admin';
             }
         },
         components: {
@@ -53,7 +56,8 @@
                         first_name: response.profile.first_name,
                         last_name: response.profile.last_name,
                         email: response.user.email,
-                        avatar:response.profile.avatar
+                        avatar:response.profile.avatar,
+                        role: response.role
                     });
                 });
             }

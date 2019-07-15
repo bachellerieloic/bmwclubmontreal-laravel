@@ -62,11 +62,13 @@
                         </li>
                     </ul>
                     <!-- Divider -->
-                    <hr class="my-3">
+                    <hr class="my-3" v-if="isAdmin">
                     <!-- Heading -->
-                    <h6 class="navbar-heading p-0 text-muted">Documentation</h6>
+
+
+                    <h6 class="navbar-heading p-0 text-muted" v-if="isAdmin">Documentation</h6>
                     <!-- Navigation -->
-                    <ul class="navbar-nav mb-md-3">
+                    <ul class="navbar-nav mb-md-3" v-if="isAdmin">
                         <li class="nav-item">
                             <a class="nav-link" href="../../docs/getting-started/overview.html" target="_blank">
                                 <i class="ni ni-spaceship"></i>
@@ -117,11 +119,16 @@
             },
             getAuthUser(name){
                 return this.$store.getters.getAuthUser(name);
-            }
+            },
+
         },
         computed: {
             getAvatar(){
                 return '/images/users/'+this.getAuthUser('avatar');
+            },
+
+            isAdmin() {
+                return this.$store.getters.getAuthUser('role') === 'admin';
             }
         }
     }
