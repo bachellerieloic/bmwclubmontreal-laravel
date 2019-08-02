@@ -8903,7 +8903,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_Form__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_Form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__services_Form__);
 
 
 
@@ -8912,7 +8911,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 window.Vue = __WEBPACK_IMPORTED_MODULE_0_vue___default.a;
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 window.axios = __WEBPACK_IMPORTED_MODULE_2_axios___default.a;
-window.Form = __WEBPACK_IMPORTED_MODULE_3__services_Form__["default"];
+window.Form = __WEBPACK_IMPORTED_MODULE_3__services_Form__["a" /* default */];
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('auth_token');
@@ -22031,13 +22030,264 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 49 */
-/***/ (function(module, __webpack_exports__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: /Users/loic/Web/bmwclubmontreal/package.json: Error while parsing JSON - Unexpected number in JSON at position 1185\n    at JSON.parse (<anonymous>)\n    at ConfigChainBuilder.addConfig (/Users/loic/Web/bmwclubmontreal/node_modules/babel-core/lib/transformation/file/options/build-config-chain.js:150:65)\n    at ConfigChainBuilder.findConfigs (/Users/loic/Web/bmwclubmontreal/node_modules/babel-core/lib/transformation/file/options/build-config-chain.js:102:30)\n    at buildConfigChain (/Users/loic/Web/bmwclubmontreal/node_modules/babel-core/lib/transformation/file/options/build-config-chain.js:61:13)\n    at OptionManager.init (/Users/loic/Web/bmwclubmontreal/node_modules/babel-core/lib/transformation/file/options/option-manager.js:354:58)\n    at File.initOptions (/Users/loic/Web/bmwclubmontreal/node_modules/babel-core/lib/transformation/file/index.js:212:65)\n    at new File (/Users/loic/Web/bmwclubmontreal/node_modules/babel-core/lib/transformation/file/index.js:135:24)\n    at Pipeline.transform (/Users/loic/Web/bmwclubmontreal/node_modules/babel-core/lib/transformation/pipeline.js:46:16)\n    at transpile (/Users/loic/Web/bmwclubmontreal/node_modules/babel-loader/lib/index.js:50:20)\n    at /Users/loic/Web/bmwclubmontreal/node_modules/babel-loader/lib/fs-cache.js:118:18\n    at ReadFileContext.callback (/Users/loic/Web/bmwclubmontreal/node_modules/babel-loader/lib/fs-cache.js:31:21)\n    at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:420:13)");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Errors__ = __webpack_require__(50);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var Form = function () {
+
+    /**
+     * Create a new Form instance.
+     *
+     * @param {object} data
+     */
+    function Form(data, autoReset) {
+        _classCallCheck(this, Form);
+
+        this.originalData = data;
+        this.autoReset = autoReset !== undefined ? autoReset : true;
+        for (var field in data) {
+            this[field] = data[field];
+        }
+
+        this.errors = new __WEBPACK_IMPORTED_MODULE_0__Errors__["a" /* default */]();
+    }
+
+    /**
+     * Fetch all relevant data for the form.
+     */
+
+
+    _createClass(Form, [{
+        key: 'data',
+        value: function data() {
+            var data = {};
+
+            for (var property in this.originalData) {
+                data[property] = this[property];
+            }
+
+            return data;
+        }
+
+        /**
+         * Reset the form fields.
+         */
+
+    }, {
+        key: 'reset',
+        value: function reset() {
+            for (var field in this.originalData) {
+                this[field] = '';
+            }
+
+            this.errors.clear();
+        }
+
+        /**
+         * Send a POST request to the given URL.
+         * .
+         * @param {string} url
+         */
+
+    }, {
+        key: 'post',
+        value: function post(url) {
+            return this.submit('post', url);
+        }
+
+        /**
+         * Send a PUT request to the given URL.
+         * .
+         * @param {string} url
+         */
+
+    }, {
+        key: 'put',
+        value: function put(url) {
+            return this.submit('put', url);
+        }
+
+        /**
+         * Send a PATCH request to the given URL.
+         * .
+         * @param {string} url
+         */
+
+    }, {
+        key: 'patch',
+        value: function patch(url) {
+            return this.submit('patch', url);
+        }
+
+        /**
+         * Send a DELETE request to the given URL.
+         * .
+         * @param {string} url
+         */
+
+    }, {
+        key: 'delete',
+        value: function _delete(url) {
+            return this.submit('delete', url);
+        }
+
+        /**
+         * Submit the form.
+         *
+         * @param {string} requestType
+         * @param {string} url
+         */
+
+    }, {
+        key: 'submit',
+        value: function submit(requestType, url) {
+            var _this = this;
+
+            return new Promise(function (resolve, reject) {
+                axios[requestType](url, _this.data()).then(function (response) {
+                    if (response.data.type != 'error') _this.onSuccess(response.data);
+
+                    resolve(response.data);
+                }).catch(function (error) {
+                    _this.onFail(error.response.data);
+
+                    reject(error.response.data);
+                });
+            });
+        }
+
+        /**
+         * Handle a successful form submission.
+         *
+         * @param {object} data
+         */
+
+    }, {
+        key: 'onSuccess',
+        value: function onSuccess(data) {
+            if (this.autoReset === true) {
+                this.reset();
+            }
+        }
+
+        /**
+         * Handle a failed form submission.
+         *
+         * @param {object} errors
+         */
+
+    }, {
+        key: 'onFail',
+        value: function onFail(errors) {
+            this.errors.record(errors);
+        }
+    }]);
+
+    return Form;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Form);
 
 /***/ }),
-/* 50 */,
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Errors = function () {
+    /**
+     * Create a new Errors instance.
+     */
+    function Errors() {
+        _classCallCheck(this, Errors);
+
+        this.errors = {};
+    }
+
+    /**
+     * Determine if an errors exists for the given field.
+     *
+     * @param {string} field
+     */
+
+
+    _createClass(Errors, [{
+        key: "has",
+        value: function has(field) {
+            return this.errors.hasOwnProperty(field);
+        }
+
+        /**
+         * Determine if we have any errors.
+         */
+
+    }, {
+        key: "any",
+        value: function any() {
+            return Object.keys(this.errors).length > 0;
+        }
+
+        /**
+         * Retrieve the error message for a field.
+         *
+         * @param {string} field
+         */
+
+    }, {
+        key: "get",
+        value: function get(field) {
+            if (this.errors[field]) {
+                return this.errors[field][0];
+            }
+        }
+
+        /**
+         * Record the new errors.
+         *
+         * @param {object} errors
+         */
+
+    }, {
+        key: "record",
+        value: function record(errors) {
+            this.errors = errors;
+        }
+
+        /**
+         * Clear one or all error fields.
+         *
+         * @param {string|null} field
+         */
+
+    }, {
+        key: "clear",
+        value: function clear(field) {
+            if (field) {
+                delete this.errors[field];
+
+                return;
+            }
+
+            this.errors = {};
+        }
+    }]);
+
+    return Errors;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Errors);
+
+/***/ }),
 /* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -36366,10 +36616,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -36415,7 +36661,7 @@ var render = function() {
   return _c("section", { attrs: { id: "login-wrapper" } }, [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-lg-5 col-md-7" }, [
+        _c("div", { staticClass: "col-xl-3 col-lg-4 col-md-6" }, [
           _c("div", { staticClass: "card border mb-0" }, [
             _c("img", {
               staticClass: "d-block mx-auto",
@@ -36423,8 +36669,6 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("div", { staticClass: "card-body px-lg-5 pb-lg-4 pt-lg-3" }, [
-              _vm._m(0),
-              _vm._v(" "),
               _c(
                 "form",
                 {
@@ -36445,7 +36689,7 @@ var render = function() {
                           "input-group input-group-merge input-group-alternative"
                       },
                       [
-                        _vm._m(1),
+                        _vm._m(0),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -36488,7 +36732,7 @@ var render = function() {
                           "input-group input-group-merge input-group-alternative"
                       },
                       [
-                        _vm._m(2),
+                        _vm._m(1),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -36582,14 +36826,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center text-muted mb-4" }, [
-      _c("h4", { staticClass: "mb-0" }, [_vm._v("BMW CLUB MONTRÉAL")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -37058,9 +37294,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -37108,7 +37341,7 @@ var render = function() {
   return _c("section", { attrs: { id: "register-wrapper" } }, [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-lg-5 col-md-7" }, [
+        _c("div", { staticClass: "col-xl-3 col-lg-4 col-md-6" }, [
           _c("div", { staticClass: "card border mb-0" }, [
             _c("img", {
               staticClass: "d-block mx-auto",
@@ -37116,8 +37349,6 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("div", { staticClass: "card-body px-lg-5 pb-lg-4 pt-lg-3" }, [
-              _vm._m(0),
-              _vm._v(" "),
               _c(
                 "form",
                 {
@@ -37138,7 +37369,7 @@ var render = function() {
                           "input-group input-group-merge input-group-alternative mb-3"
                       },
                       [
-                        _vm._m(1),
+                        _vm._m(0),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -37181,7 +37412,7 @@ var render = function() {
                           "input-group input-group-merge input-group-alternative mb-3"
                       },
                       [
-                        _vm._m(2),
+                        _vm._m(1),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -37224,7 +37455,7 @@ var render = function() {
                           "input-group input-group-merge input-group-alternative mb-3"
                       },
                       [
-                        _vm._m(3),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -37267,7 +37498,7 @@ var render = function() {
                           "input-group input-group-merge input-group-alternative"
                       },
                       [
-                        _vm._m(4),
+                        _vm._m(3),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -37310,7 +37541,7 @@ var render = function() {
                           "input-group input-group-merge input-group-alternative"
                       },
                       [
-                        _vm._m(5),
+                        _vm._m(4),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -37416,18 +37647,18 @@ var render = function() {
                             }
                           }),
                           _vm._v(" "),
-                          _vm._m(6)
+                          _vm._m(5)
                         ]
                       )
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(7)
+                  _vm._m(6)
                 ]
               ),
               _vm._v(" "),
               _c("div", { staticClass: "row mt-3" }, [
-                _vm._m(8),
+                _vm._m(7),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -37453,14 +37684,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center text-muted mb-4" }, [
-      _c("h4", { staticClass: "mb-0" }, [_vm._v("BMW CLUB MONTRÉAL")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
