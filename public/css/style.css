@@ -5780,6 +5780,71 @@ html {
   min-height: 100vh;
 }
 
+.router-anim-enter-active {
+  -webkit-animation: coming 2s;
+          animation: coming 2s;
+  opacity: 0;
+}
+
+.router-anim-leave-active {
+  -webkit-animation: going 1s;
+          animation: going 1s;
+}
+
+@-webkit-keyframes going {
+  from {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+
+  to {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes going {
+  from {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+
+  to {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes coming {
+  from {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes coming {
+  from {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
 #login-wrapper,
 #register-wrapper {
   background-image: url("/images/background/background.jpg");

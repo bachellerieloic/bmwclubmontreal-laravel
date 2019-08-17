@@ -24,6 +24,10 @@ let routes = [
                 component: require('./views/configuration/configuration')
             },
             {
+                path: '/user',
+                component: require('./views/user/index')
+            },
+            {
                 path: '/profile',
                 component: require('./views/user/profile')
             },
@@ -43,10 +47,7 @@ let routes = [
                 path: '/sorties:id/edit',
                 component: require('./views/sorties/edit')
             },
-            {
-                path: '/user',
-                component: require('./views/user/index')
-            },
+
         ]
     },
     {

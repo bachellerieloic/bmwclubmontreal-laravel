@@ -10,6 +10,36 @@ html {
     min-height: 100vh;
 }
 
+.router-anim-enter-active {
+    animation: coming 2s;
+    opacity: 0;
+}
+
+.router-anim-leave-active {
+    animation: going 1s;
+}
+
+@keyframes going {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+}
+
+@keyframes coming {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
 #login-wrapper, #register-wrapper {
     background-image: url("/images/background/background.jpg");
     background-size: cover;
