@@ -3,9 +3,9 @@
         <div class="scroll-wrapper scrollbar-inner" style="position: relative;"><div class="scrollbar-inner scroll-content">
             <!-- Brand -->
             <div class="sidenav-header d-flex align-items-center">
-                <a class="navbar-brand" href="../../pages/dashboards/dashboard.html">
-                    <img src="images/brand/blue.png" class="navbar-brand-img" alt="...">
-                </a>
+                <router-link to="/home" class="text-center">
+                    <img src="images/logo-bmw.png" class="w-75" alt="logo-bmw">
+                </router-link>
                 <div class="ml-auto">
                     <!-- Sidenav toggler -->
                     <div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin" data-target="#sidenav-main">
@@ -23,7 +23,7 @@
                     <!-- Nav items -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <router-link to="/" class="nav-link active">
+                            <router-link to="/dashboard" class="nav-link active">
                                 <i class="ni ni-shop text-primary"></i>
                                 <span class="nav-link-text">Accueil</span>
                             </router-link>
@@ -59,6 +59,11 @@
                                     </li>
                                 </ul>
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" @click.prevent="logout" class="nav-link">
+                                <i class="fa fa-power-off"></i>
+                                <span class="nav-link-text">Logout</span></a>
                         </li>
                     </ul>
                     <!-- Divider -->
@@ -111,7 +116,7 @@
             logout(){
                 helper.logout().then(() => {
                     this.$store.dispatch('resetAuthUserDetail');
-                    this.$router.replace('/login')
+                    this.$router.replace('/')
                 })
             },
             getAuthUserFullName(){

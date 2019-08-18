@@ -16,13 +16,13 @@ $(function () {
                 $("body").addClass("mini-sidebar");
                 $('.navbar-brand span').hide();
                 $(".scroll-sidebar, .slimScrollDiv").css("overflow-x", "visible").parent().css("overflow", "visible");
-                $(".sidebartoggler i").addClass("fa fa-bars");
+                // $(".sidenav-toggler i").addClass("fa fa-bars");
             }
             else {
                 $("body").removeClass("mini-sidebar");
                 $('.navbar-brand span').show();
-                $(".sidebartoggler i").removeClass("fa-bars");
-                $(".sidebartoggler i").addClass("fa fa-arrow-circle-o-left");
+                // $(".sidebartoggler i").removeClass("fa-bars");
+                // $(".sidebartoggler i").addClass("fa fa-arrow-circle-o-left");
             }
 
             var height = ((window.innerHeight > 0) ? window.innerHeight : this.screen.height) - 1;
@@ -38,20 +38,20 @@ $(function () {
     // ==============================================================
     // Theme options
     // ==============================================================
-    $(document).on('click','.sidebartoggler', function () {
+    $(document).on('click','.sidenav-toggler', function () {
         if ($("body").hasClass("mini-sidebar")) {
             $("body").trigger("resize");
             $(".scroll-sidebar, .slimScrollDiv").css("overflow", "hidden").parent().css("overflow", "visible");
             $("body").removeClass("mini-sidebar");
             $('.navbar-brand span').show();
-            $(".sidebartoggler i").addClass("fa fa-bars");
+            // $(".sidenav-toggler i").addClass("fa fa-bars");
         }
         else {
             $("body").trigger("resize");
             $(".scroll-sidebar, .slimScrollDiv").css("overflow-x", "visible").parent().css("overflow", "visible");
             $("body").addClass("mini-sidebar");
             $('.navbar-brand span').hide();
-            $(".sidebartoggler i").removeClass("fa-bars");
+            // $(".sidenav-toggler i").removeClass("fa-bars");
         }
     });
     // topbar stickey on scroll
@@ -64,8 +64,8 @@ $(function () {
         $(".nav-toggler i").toggleClass("fa fa-bars");
         $(".nav-toggler i").addClass("fa fa-times");
     });
-    $(".sidebartoggler").on('click', function () {
-        $(".sidebartoggler i").toggleClass("fa fa-times");
+    $(".sidenav-toggler").on('click', function () {
+        $(".sidenav-toggler i").toggleClass("fa fa-times");
     });
 
     // ==============================================================

@@ -14,32 +14,25 @@ class UserController extends Controller
     protected $avatar_path = 'images/users/';
 
 	public function index(){
-		$users = \App\User::with('profile');
+		$users = \App\User::with('profile')->get();
 
-		if(request()->has('first_name'))
-            $query->whereHas('profile',function($q) use ($request){
-                $q->where('first_name','like','%'.request('first_name').'%');
-            });
+		$usersArray = [];
 
-		if(request()->has('last_name'))
-            $query->whereHas('profile',function($q) use ($request){
-                $q->where('last_name','like','%'.request('last_name').'%');
-            });
 
-		if(request()->has('email'))
-			$users->where('email','like','%'.request('email').'%');
+		foreach($users as $user) {
+		    $usersArray[] = [
+		        'id'            => $user->id,
+		        'first_name'    => $user->profile->first_name,
+		        'last_name'     => $user->profile->last_name,
+		        'email'         => $user->email,
+		        'date_of_birth' => $user->profile->date_of_birth,
+		        'gender'        => $user->profile->gender,
+                'status'        => $user->status,
+            ];
+        }
 
-        if(request()->has('status'))
-            $users->whereStatus(request('status'));
 
-        if(request('sortBy') == 'first_name' || request('sortBy') == 'last_name')
-            $users->with(['profile' => function ($q) {
-              $q->orderBy(request('sortBy'), request('order'));
-            }]);
-        else
-            $users->orderBy(request('sortBy'),request('order'));
-
-		return $users->paginate(request('pageLength'));
+		return $usersArray;
 	}
 
     public function updateProfile(Request $request){

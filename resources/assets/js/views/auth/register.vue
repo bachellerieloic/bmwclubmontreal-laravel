@@ -3,13 +3,10 @@
 
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-7">
+                <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="card border mb-0">
                         <img src="/images/logo-bmw.png" width="250" class="d-block mx-auto"/>
                         <div class="card-body px-lg-5 pb-lg-4 pt-lg-3">
-                            <div class="text-center text-muted mb-4">
-                                <h4 class="mb-0">BMW CLUB MONTRÉAL</h4>
-                            </div>
                             <form id="registerform" role="form" @submit.prevent="submit">
 
                                 <div class="form-group">

@@ -2,158 +2,74 @@
 	<div>
         <div class="row page-titles">
             <div class="col-md-6 col-8 align-self-center">
-                <h3 class="text-themecolor m-b-0 m-t-0">User</h3>
+                <h3 class="text-themecolor m-b-0 m-t-0 ml-3">Members</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/home">Home</router-link></li>
-                    <li class="breadcrumb-item active">User</li>
+                    <li class="breadcrumb-item active">Members</li>
                 </ol>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Filter User</h4>
+        <v-app class="px-4">
+                <v-card :loading="isLoading">
+                    <v-card-title>
+                        <v-spacer>
+                        <v-text-field v-model="search" label="Search" single-line hide-details></v-text-field>
+                        </v-spacer>
+                    </v-card-title>
+                    <v-data-table :headers="headers" :items="users" class="elevation-1" :search="search">
 
-                        <div class="row m-t-40">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="">First Name</label>
-                                    <input class="form-control" v-model="filterUserForm.first_name" @blur="getUsers">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="">Last Name</label>
-                                    <input class="form-control" v-model="filterUserForm.last_name" @blur="getUsers">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="">Email</label>
-                                    <input class="form-control" v-model="filterUserForm.email" @blur="getUsers">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="">Status</label>
-                                    <select name="status" class="form-control" v-model="filterUserForm.status" @change="getUsers">
-                                        <option value="">All</option>
-                                        <option value="pending_activation">Pending Activation</option>
-                                        <option value="activated">Activated</option>
-                                        <option value="banned">Banned</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="">Sort By</label>
-                                    <select name="sortBy" class="form-control" v-model="filterUserForm.sortBy" @change="getUsers">
-                                        <option value="first_name">First Name</option>
-                                        <option value="last_name">Last Name</option>
-                                        <option value="email">Email</option>
-                                        <option value="status">Status</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="">Order</label>
-                                    <select name="order" class="form-control" v-model="filterUserForm.order" @change="getUsers">
-                                        <option value="asc">Asc</option>
-                                        <option value="desc">Desc</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                        <template v-slot:item.statusType="{ item }">
+                            <div v-html="getUserStatus(item.status)"> test</div>
+                        </template>
 
-                        <h4 class="card-title">User List</h4>
-                        <h6 class="card-subtitle" v-if="users.total">Total {{users.total}} result found!</h6>
-                        <h6 class="card-subtitle" v-else>No result found!</h6>
-                        <div class="table-responsive">
-                            <table class="table" v-if="users.total">
-                                <thead>
-                                    <tr>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Date of Birth</th>
-                                        <th>Gender</th>
-                                        <th>Email</th>
-                                        <th>Status</th>
-                                        <th style="width:150px;">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="user in users.data">
-                                        <td v-text="user.profile.first_name"></td>
-                                        <td v-text="user.profile.last_name"></td>
-                                        <td>{{ user.profile.date_of_birth | moment }}</td>
-                                        <td>{{ user.profile.gender | ucword }}</td>
-                                        <td v-text="user.email"></td>
-                                        <td v-html="getUserStatus(user)"></td>
-                                        <td>
-                                            <click-confirm yes-class="btn btn-success" no-class="btn btn-danger">
-                                                <button class="btn btn-danger btn-sm" @click.prevent="deleteUser(user)" data-toggle="tooltip" title="Delete User"><i class="fa fa-trash"></i></button>
-                                            </click-confirm>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <pagination :data="users" :limit=3 v-on:pagination-change-page="getUsers"></pagination>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="float-right">
-                                        <select name="pageLength" class="form-control" v-model="filterUserForm.pageLength" @change="getUsers" v-if="users.total">
-                                            <option value="5">5 per page</option>
-                                            <option value="10">10 per page</option>
-                                            <option value="25">25 per page</option>
-                                            <option value="100">100 per page</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <template v-slot:item.action="{ item }">
+                            <button class="btn btn-outline-success btn-sm"><i class="fa fa-pencil fa-fw"></i> edit</button>
+                            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash fa-fw"></i> delete</button>
+                        </template>
+                    </v-data-table>
+                </v-card>
+        </v-app>
+        <i class="fa fa-male"></i>
     </div>
 </template>
 
+
 <script>
-    import pagination from 'laravel-vue-pagination'
     import helper from '../../services/helper'
     import ClickConfirm from 'click-confirm'
 
     export default {
-        components : { pagination, ClickConfirm },
+        components : { ClickConfirm },
         data() {
             return {
-                users: {},
-                filterUserForm: {
-                    sortBy : 'first_name',
-                    order: 'desc',
-                    status: '',
-                    title: '',
-                    pageLength: 5
-                }
+                isLoading: false,
+                users: [],
+                search: '',
+                e6: [],
+                headers: [
+                    { text: 'First name', align: 'left', sortable: true, value: 'first_name',},
+                    { text: 'Last nane', align: 'left', sortable: true, value: 'last_name' },
+                    { text: 'Email', align: 'left', sortable: true, value: 'email' },
+                    { text: 'Date of birth', align: 'left', sortable: true, value: 'date_of_birth' },
+                    { text: 'Gender', align: 'left', sortable: true, value: 'gender' },
+                    { text: 'Status', align: 'left', value: 'statusType', sortable: false, },
+                    { text: 'Actions', value: 'action', sortable: false },
+
+                ],
             }
         },
         mounted() {
             this.getUsers();
         },
         methods: {
-            getUsers(page) {
-                if (typeof page === 'undefined') {
-                    page = 1;
-                }
-                let url = helper.getFilterURL(this.filterUserForm);
-                axios.get('/api/user?page=' + page + url)
-                    .then(response => this.users = response.data );
+            getUsers() {
+                this.isLoading = true
+                axios.get('/api/user')
+                    .then((response) =>{
+                        this.users = response.data;
+                        this.isLoading = false
+                    });
             },
             deleteUser(user){
                 axios.delete('/api/user/'+user.id).then(response => {
@@ -163,15 +79,18 @@
                     toastr['error'](error.response.data.message);
                 });
             },
-            getUserStatus(user){
-                if(user.status == 'pending_activation')
-                    return '<span class="label label-warning">Pending Activation</span>';
-                else if(user.status == 'activated')
-                    return '<span class="label label-success">Activated</span>';
-                else if(user.status == 'banned')
-                    return '<span class="label label-danger">Banned</span>';
+            getUserGenderIcon(gender) {
+                return gender === 'male' ? 'fa-male' : 'fa-woman';
+            },
+            getUserStatus(status){
+                if(status === 'pending_activation')
+                    return '<span class="badge badge-pill badge-warning">Pending Activation</span>';
+                else if(status === 'activated')
+                    return '<span class="badge badge-pill badge-success">Activated</span>';
+                else if(status === 'banned')
+                    return '<span class="badge badge-pill badge-danger">Banned</span>';
                 else
-                    return;
+                    return '';
             }
         },
         filters: {
@@ -184,3 +103,9 @@
         }
     }
 </script>
+
+<style>
+    .v-menu__content {
+        margin-left: -250px;
+    }
+</style>

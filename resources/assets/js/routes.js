@@ -4,13 +4,40 @@ import helper from './services/helper'
 let routes = [
     {
         path: '/',
-        component: require('./layouts/default-page'),
-        meta: { requiresAuth: true },
+        component: require('./layouts/landing-page'),
+        meta: { requiresGuest: true },
         children: [
             {
                 path: '/',
-                component: require('./views/pages/home')
+                component: require('./views/pages/landing')
             },
+            {
+                path: '/login',
+                component: require('./views/auth/login')
+            },
+            {
+                path: '/password',
+                component: require('./views/auth/password')
+            },
+            {
+                path: '/register',
+                component: require('./views/auth/register')
+            },
+            {
+                path: '/auth/:token/activate',
+                component: require('./views/auth/activate')
+            },
+            {
+                path: '/password/reset/:token',
+                component: require('./views/auth/reset')
+            }
+        ]
+    },
+    {
+        path: '/',
+        component: require('./layouts/default-page'),
+        meta: { requiresAuth: true },
+        children: [
             {
                 path: '/home',
                 component: require('./views/pages/home')
@@ -22,6 +49,10 @@ let routes = [
             {
                 path: '/configuration',
                 component: require('./views/configuration/configuration')
+            },
+            {
+                path: '/user',
+                component: require('./views/user/index')
             },
             {
                 path: '/profile',
@@ -43,41 +74,7 @@ let routes = [
                 path: '/sorties:id/edit',
                 component: require('./views/sorties/edit')
             },
-            {
-                path: '/user',
-                component: require('./views/user/index')
-            },
-        ]
-    },
-    {
-        path: '/',
-        component: require('./layouts/guest-page'),
-        meta: { requiresGuest: true },
-        children: [
-            {
-                path: '/login',
-                component: require('./views/auth/login')
-            },
-            {
-                path: '/password',
-                component: require('./views/auth/password')
-            },
-            {
-                path: '/register',
-                component: require('./views/auth/register')
-            },
-            {
-                path: '/auth/:token/activate',
-                component: require('./views/auth/activate')
-            },
-            {
-                path: '/password/reset/:token',
-                component: require('./views/auth/reset')
-            },
-            {
-                path: '/auth/social',
-                component: require('./views/auth/social-auth')
-            },
+
         ]
     },
     {

@@ -8,6 +8,7 @@
 require('./bootstrap');
 import store from './store'
 import router from './routes'
+import vuetify from './vuetify'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -18,5 +19,6 @@ import router from './routes'
 const app = new Vue({
     el: '#root',
     store,
-    router
+    router,
+    vuetify
 });

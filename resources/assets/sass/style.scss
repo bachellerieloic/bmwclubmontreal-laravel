@@ -1,9 +1,5 @@
-/*
-Template Name: Monster Admin
-Author: Themedesigner
-Email: niravjoshi87@gmail.com
-File: scss
-*/
+
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 //@import './../plugins/bootstrap/sass/bootstrap.scss';
 @import 'argon.min.css';
@@ -15,6 +11,7 @@ File: scss
 //@import 'grid';
 //@import 'responsive';
 @import 'spinners.css';
+@import './../plugins/vuetify/vuetify.min.css';
 @import './../plugins/animate.css/animate.min.css';
 @import './../plugins/font-awesome/scss/font-awesome.scss';
 @import './../plugins/nucleo/nucleo.css';
