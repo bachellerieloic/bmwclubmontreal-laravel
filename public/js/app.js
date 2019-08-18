@@ -24442,6 +24442,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -24499,7 +24501,25 @@ var render = function() {
         },
         [
           _c("div", { staticClass: "scrollbar-inner scroll-content" }, [
-            _vm._m(0),
+            _c(
+              "div",
+              { staticClass: "sidenav-header d-flex align-items-center" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "text-center", attrs: { to: "/home" } },
+                  [
+                    _c("img", {
+                      staticClass: "w-75",
+                      attrs: { src: "images/logo-bmw.png", alt: "logo-bmw" }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(0)
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "navbar-inner" }, [
               _c(
@@ -24518,7 +24538,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass: "nav-link active",
-                            attrs: { to: "/" }
+                            attrs: { to: "/home" }
                           },
                           [
                             _c("i", { staticClass: "ni ni-shop text-primary" }),
@@ -24630,6 +24650,7 @@ var render = function() {
                       _c(
                         "a",
                         {
+                          staticClass: "nav-link",
                           attrs: { href: "#" },
                           on: {
                             click: function($event) {
@@ -24641,7 +24662,7 @@ var render = function() {
                         [
                           _c("i", { staticClass: "fa fa-power-off" }),
                           _vm._v(" "),
-                          _c("span", { staticClass: "hide-menu" }, [
+                          _c("span", { staticClass: "nav-link-text" }, [
                             _vm._v("Logout")
                           ])
                         ]
@@ -24686,47 +24707,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "sidenav-header d-flex align-items-center" },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "navbar-brand",
-            attrs: { href: "../../pages/dashboards/dashboard.html" }
-          },
-          [
-            _c("img", {
-              staticClass: "navbar-brand-img",
-              attrs: { src: "images/brand/blue.png", alt: "..." }
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "ml-auto" }, [
-          _c(
-            "div",
-            {
-              staticClass: "sidenav-toggler d-none d-xl-block",
-              attrs: {
-                "data-action": "sidenav-unpin",
-                "data-target": "#sidenav-main"
-              }
-            },
-            [
-              _c("div", { staticClass: "sidenav-toggler-inner" }, [
-                _c("i", { staticClass: "sidenav-toggler-line" }),
-                _vm._v(" "),
-                _c("i", { staticClass: "sidenav-toggler-line" }),
-                _vm._v(" "),
-                _c("i", { staticClass: "sidenav-toggler-line" })
-              ])
-            ]
-          )
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "ml-auto" }, [
+      _c(
+        "div",
+        {
+          staticClass: "sidenav-toggler d-none d-xl-block",
+          attrs: {
+            "data-action": "sidenav-unpin",
+            "data-target": "#sidenav-main"
+          }
+        },
+        [
+          _c("div", { staticClass: "sidenav-toggler-inner" }, [
+            _c("i", { staticClass: "sidenav-toggler-line" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "sidenav-toggler-line" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "sidenav-toggler-line" })
+          ])
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this
