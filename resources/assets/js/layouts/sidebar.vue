@@ -60,6 +60,9 @@
                                 </ul>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a href="#" @click.prevent="logout"><i class="fa fa-power-off"></i> <span class="hide-menu">Logout</span></a>
+                        </li>
                     </ul>
                     <!-- Divider -->
                     <hr class="my-3" v-if="isAdmin">

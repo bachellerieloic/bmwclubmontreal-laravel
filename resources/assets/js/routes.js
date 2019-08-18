@@ -3,7 +3,7 @@ import helper from './services/helper'
 
 let routes = [
     {
-        path: '/',
+        path: '/admin',
         component: require('./layouts/default-page'),
         meta: { requiresAuth: true },
         children: [
@@ -52,9 +52,13 @@ let routes = [
     },
     {
         path: '/',
-        component: require('./layouts/guest-page'),
+        component: require('./layouts/landing-page'),
         meta: { requiresGuest: true },
         children: [
+            {
+                path: '/',
+                component: require('./views/pages/landing')
+            },
             {
                 path: '/login',
                 component: require('./views/auth/login')
@@ -74,11 +78,7 @@ let routes = [
             {
                 path: '/password/reset/:token',
                 component: require('./views/auth/reset')
-            },
-            {
-                path: '/auth/social',
-                component: require('./views/auth/social-auth')
-            },
+            }
         ]
     },
     {
