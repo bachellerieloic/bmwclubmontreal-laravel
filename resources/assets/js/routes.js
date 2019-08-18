@@ -3,14 +3,41 @@ import helper from './services/helper'
 
 let routes = [
     {
-        path: '/admin',
-        component: require('./layouts/default-page'),
-        meta: { requiresAuth: true },
+        path: '/',
+        component: require('./layouts/landing-page'),
+        meta: { requiresGuest: true },
         children: [
             {
                 path: '/',
-                component: require('./views/pages/home')
+                component: require('./views/pages/landing')
             },
+            {
+                path: '/login',
+                component: require('./views/auth/login')
+            },
+            {
+                path: '/password',
+                component: require('./views/auth/password')
+            },
+            {
+                path: '/register',
+                component: require('./views/auth/register')
+            },
+            {
+                path: '/auth/:token/activate',
+                component: require('./views/auth/activate')
+            },
+            {
+                path: '/password/reset/:token',
+                component: require('./views/auth/reset')
+            }
+        ]
+    },
+    {
+        path: '/',
+        component: require('./layouts/default-page'),
+        meta: { requiresAuth: true },
+        children: [
             {
                 path: '/home',
                 component: require('./views/pages/home')
@@ -48,37 +75,6 @@ let routes = [
                 component: require('./views/sorties/edit')
             },
 
-        ]
-    },
-    {
-        path: '/',
-        component: require('./layouts/landing-page'),
-        meta: { requiresGuest: true },
-        children: [
-            {
-                path: '/',
-                component: require('./views/pages/landing')
-            },
-            {
-                path: '/login',
-                component: require('./views/auth/login')
-            },
-            {
-                path: '/password',
-                component: require('./views/auth/password')
-            },
-            {
-                path: '/register',
-                component: require('./views/auth/register')
-            },
-            {
-                path: '/auth/:token/activate',
-                component: require('./views/auth/activate')
-            },
-            {
-                path: '/password/reset/:token',
-                component: require('./views/auth/reset')
-            }
         ]
     },
     {

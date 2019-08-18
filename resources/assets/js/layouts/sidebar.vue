@@ -23,7 +23,7 @@
                     <!-- Nav items -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <router-link to="/home" class="nav-link active">
+                            <router-link to="/dashboard" class="nav-link active">
                                 <i class="ni ni-shop text-primary"></i>
                                 <span class="nav-link-text">Accueil</span>
                             </router-link>
@@ -116,7 +116,7 @@
             logout(){
                 helper.logout().then(() => {
                     this.$store.dispatch('resetAuthUserDetail');
-                    this.$router.replace('/login')
+                    this.$router.replace('/')
                 })
             },
             getAuthUserFullName(){

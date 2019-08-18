@@ -24048,13 +24048,33 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 var routes = [{
-    path: '/admin',
+    path: '/',
+    component: __webpack_require__(175),
+    meta: { requiresGuest: true },
+    children: [{
+        path: '/',
+        component: __webpack_require__(172)
+    }, {
+        path: '/login',
+        component: __webpack_require__(115)
+    }, {
+        path: '/password',
+        component: __webpack_require__(118)
+    }, {
+        path: '/register',
+        component: __webpack_require__(123)
+    }, {
+        path: '/auth/:token/activate',
+        component: __webpack_require__(126)
+    }, {
+        path: '/password/reset/:token',
+        component: __webpack_require__(129)
+    }]
+}, {
+    path: '/',
     component: __webpack_require__(59),
     meta: { requiresAuth: true },
     children: [{
-        path: '/',
-        component: __webpack_require__(18)
-    }, {
         path: '/home',
         component: __webpack_require__(18)
     }, {
@@ -24081,29 +24101,6 @@ var routes = [{
     }, {
         path: '/sorties:id/edit',
         component: __webpack_require__(109)
-    }]
-}, {
-    path: '/',
-    component: __webpack_require__(175),
-    meta: { requiresGuest: true },
-    children: [{
-        path: '/',
-        component: __webpack_require__(172)
-    }, {
-        path: '/login',
-        component: __webpack_require__(115)
-    }, {
-        path: '/password',
-        component: __webpack_require__(118)
-    }, {
-        path: '/register',
-        component: __webpack_require__(123)
-    }, {
-        path: '/auth/:token/activate',
-        component: __webpack_require__(126)
-    }, {
-        path: '/password/reset/:token',
-        component: __webpack_require__(129)
     }]
 }, {
     path: '*',
@@ -24457,7 +24454,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             __WEBPACK_IMPORTED_MODULE_0__services_helper__["a" /* default */].logout().then(function () {
                 _this.$store.dispatch('resetAuthUserDetail');
-                _this.$router.replace('/login');
+                _this.$router.replace('/');
             });
         },
         getAuthUserFullName: function getAuthUserFullName() {
@@ -24538,7 +24535,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass: "nav-link active",
-                            attrs: { to: "/home" }
+                            attrs: { to: "/dashboard" }
                           },
                           [
                             _c("i", { staticClass: "ni ni-shop text-primary" }),
@@ -40433,7 +40430,7 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "container" }, [
           _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-            _vm._v("Default Color")
+            _vm._v("BMW Club Montreal")
           ]),
           _vm._v(" "),
           _c(
