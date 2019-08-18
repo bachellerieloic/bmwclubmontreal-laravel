@@ -4,9 +4,7 @@
 
         <div class="main-content" id="panel">
                 <app-top-navbar></app-top-navbar>
-            <transition name="router-anim">
                 <router-view></router-view>
-            </transition>
             <app-footer></app-footer>
         </div>
 

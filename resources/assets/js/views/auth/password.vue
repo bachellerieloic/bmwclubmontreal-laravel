@@ -1,6 +1,6 @@
 <template>
     <section id="wrapper">
-        <div class="login-register">
+        <div class="login-register" style="background-image:url(/images/background/background.jpg);">
             <div class="login-box card">
             <div class="card-body">
                 <form class="form-horizontal form-material" id="passwordform" @submit.prevent="submit">
