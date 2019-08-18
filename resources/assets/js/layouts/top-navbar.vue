@@ -246,7 +246,7 @@
             logout(){
                 helper.logout().then(() => {
                     this.$store.dispatch('resetAuthUserDetail');
-                    this.$router.replace('/login');
+                    this.$router.replace('/');
                 })
             },
             getAuthUserFullName(){
