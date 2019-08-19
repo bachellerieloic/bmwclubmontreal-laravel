@@ -56,7 +56,7 @@
 
 <script>
     import Login from '../auth/login';
-    import Login from '../auth/register';
+    import Register from '../auth/register';
 
 
     export default {
