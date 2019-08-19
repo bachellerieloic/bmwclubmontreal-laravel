@@ -23,7 +23,7 @@
                     <!-- Nav items -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <router-link to="/dashboard" class="nav-link active">
+                            <router-link to="/homes" class="nav-link active">
                                 <i class="ni ni-shop text-primary"></i>
                                 <span class="nav-link-text">Accueil</span>
                             </router-link>
