@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
         /*
          * Application Service Providers...
