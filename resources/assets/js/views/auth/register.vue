@@ -3,7 +3,7 @@
 
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="col-10 col-xl-3 col-lg-4 col-md-6">
                     <div class="card border mb-0">
                         <img src="/images/logo-bmw.png" width="250" class="d-block mx-auto"/>
                         <div class="card-body px-lg-5 pb-lg-4 pt-lg-3">

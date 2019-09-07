@@ -5769,6 +5769,13 @@ html {
   overflow-y: auto !important;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 #root {
   min-height: 100vh;
 }
@@ -5842,9 +5849,9 @@ html {
   display: grid;
   grid-template-areas: "nav" "content" "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 0.5fr 2fr 0.25fr;
+  grid-template-rows: 0.25fr 1fr 0.25fr;
   grid-gap: 10px;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 header {
@@ -5857,7 +5864,6 @@ header {
 
 #main {
   grid-area: content;
-  margin-top: 60px;
 }
 
 #footer {

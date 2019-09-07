@@ -1,5 +1,5 @@
 <template>
-    <nav id="navbar" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
+    <nav id="navbar" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light justify-content-lg-center">
         <div class="">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,17 +38,9 @@
                 <hr class="d-lg-none" />
                 <ul class="navbar-nav align-items-lg-center ml-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="https://www.facebook.com/" target="_blank" data-toggle="tooltip" data-original-title="Like us on Facebook">
+                        <a class="nav-link nav-link-icon" href="https://www.facebook.com/groups/332206660458879/" target="_blank" data-toggle="tooltip" data-original-title="Like us on Facebook">
                             <i class="fa fa-facebook-square"></i>
                             <span class="nav-link-inner--text">Facebook</span>
-                        </a>
-                    </li>
-                    <li class="nav-item d-none d-lg-block ml-lg-4">
-                        <a href="https://www.creative-tim.com/product/argon-dashboard-pro" target="_blank" class="btn btn-neutral btn-icon">
-                  <span class="btn-inner--icon">
-                    <i class="fas fa-shopping-cart mr-2"></i>
-                  </span>
-                            <span class="nav-link-inner--text">Purchase now</span>
                         </a>
                     </li>
                 </ul>

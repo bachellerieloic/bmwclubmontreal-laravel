@@ -24409,14 +24409,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'LandingNavbar',
@@ -24442,7 +24434,7 @@ var render = function() {
     "nav",
     {
       staticClass:
-        "navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light",
+        "navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light justify-content-lg-center",
       attrs: { id: "navbar" }
     },
     [
@@ -24589,7 +24581,7 @@ var staticRenderFns = [
             {
               staticClass: "nav-link nav-link-icon",
               attrs: {
-                href: "https://www.facebook.com/",
+                href: "https://www.facebook.com/groups/332206660458879/",
                 target: "_blank",
                 "data-toggle": "tooltip",
                 "data-original-title": "Like us on Facebook"
@@ -24600,29 +24592,6 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("span", { staticClass: "nav-link-inner--text" }, [
                 _vm._v("Facebook")
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav-item d-none d-lg-block ml-lg-4" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-neutral btn-icon",
-              attrs: {
-                href:
-                  "https://www.creative-tim.com/product/argon-dashboard-pro",
-                target: "_blank"
-              }
-            },
-            [
-              _c("span", { staticClass: "btn-inner--icon" }, [
-                _c("i", { staticClass: "fas fa-shopping-cart mr-2" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "nav-link-inner--text" }, [
-                _vm._v("Purchase now")
               ])
             ]
           )
@@ -24995,7 +24964,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", {}, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-8 col-lg-5 col-md-7" }, [
+      _c("div", { staticClass: "col-10 col-lg-5 col-md-7" }, [
         _c("div", { staticClass: "card border-0 mb-0" }, [
           _c("img", {
             staticClass: "d-block mx-auto",
@@ -25358,7 +25327,7 @@ var render = function() {
   return _c("section", { attrs: { id: "register-wrapper" } }, [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-xl-3 col-lg-4 col-md-6" }, [
+        _c("div", { staticClass: "col-10 col-xl-3 col-lg-4 col-md-6" }, [
           _c("div", { staticClass: "card border mb-0" }, [
             _c("img", {
               staticClass: "d-block mx-auto",
