@@ -5838,6 +5838,48 @@ html {
   }
 }
 
+#container {
+  display: grid;
+  grid-template-areas: "nav" "content" "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 2fr 0.25fr;
+  grid-gap: 10px;
+  height: 100vh;
+}
+
+header {
+  grid-area: header;
+}
+
+#navbar {
+  grid-area: nav;
+}
+
+#main {
+  grid-area: content;
+  margin-top: 60px;
+}
+
+#footer {
+  grid-area: footer;
+  -ms-flex-item-align: end;
+      align-self: end;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-areas: "header" "nav" "content" "side" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(75px, auto) 1fr minmax(75px, auto) auto;
+    /* Footer */
+  }
+
+  nav,
+  aside {
+    margin: 0;
+  }
+}
+
 #submit-login.loading {
   background-image: url("/images/loader.gif");
   background-repeat: no-repeat;

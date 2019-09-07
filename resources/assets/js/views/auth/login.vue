@@ -1,9 +1,10 @@
 <template>
 
-<div class="container mt--8 pb-5">
+<div class="">
     <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-7">
-            <div class="card bg-secondary border-0 mb-0">
+        <div class="col-8 col-lg-5 col-md-7">
+            <div class="card border-0 mb-0">
+                <img src="/images/logo-bmw.png" width="250" class="d-block mx-auto"/>
                 <div class="card-body px-lg-5 py-lg-5">
                         <form role="form" id="loginform" @submit.prevent="submit">
                         <div><p class="text-center">Connectez-vous</p></div>
