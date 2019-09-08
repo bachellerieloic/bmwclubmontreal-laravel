@@ -5849,8 +5849,7 @@ html {
   display: grid;
   grid-template-areas: "nav" "content" "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 0.25fr 1fr 0.25fr;
-  grid-gap: 10px;
+  grid-template-rows: auto 1fr 0.25fr;
   min-height: 100vh;
 }
 
@@ -5860,6 +5859,7 @@ header {
 
 #navbar {
   grid-area: nav;
+  position: relative;
 }
 
 #main {

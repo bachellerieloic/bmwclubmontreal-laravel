@@ -20,9 +20,9 @@
                 </div>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="../../pages/dashboards/dashboard.html" class="nav-link">
-                            <span class="nav-link-inner--text">Dashboard</span>
-                        </a>
+                        <router-link to="/" class="nav-link">
+                            <span class="nav-link-inner--text">Accueil</span>
+                        </router-link>
                     </li>
                     <li class="nav-item">
                         <router-link to="/login" class="nav-link">
