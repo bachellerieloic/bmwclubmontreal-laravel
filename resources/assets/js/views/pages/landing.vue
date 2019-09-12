@@ -79,7 +79,7 @@
     @media (max-width: 768px) {
 
         .slider-container {
-            min-height:400px;
+            min-height:300px;
         }
     }
 </style>
