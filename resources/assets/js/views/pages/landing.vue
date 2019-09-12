@@ -71,5 +71,7 @@
         width: 50%;
         background-color: rgba(255, 255, 255, 0.86);
         text-align: center;
+        border-radius:10px;
+        padding:20px;
     }
 </style>

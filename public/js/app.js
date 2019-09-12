@@ -24783,7 +24783,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n#img1  {\n    background-image:url(\"/images/banners/long-lake-1.jpg\");\n}\n#img2 {\n    background-image:url(\"/images/banners/long-lake-2.jpg\");\n}\n#img3 {\n    background-image: url(\"/images/banners/ottawa.jpg\");\n}\n.slider-container {\n    min-height: 600px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    background-size:cover;\n}\n.innerDiv {\n    width: 50%;\n    background-color: rgba(255, 255, 255, 0.86);\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n#img1  {\n    background-image:url(\"/images/banners/long-lake-1.jpg\");\n}\n#img2 {\n    background-image:url(\"/images/banners/long-lake-2.jpg\");\n}\n#img3 {\n    background-image: url(\"/images/banners/ottawa.jpg\");\n}\n.slider-container {\n    min-height: 600px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    background-size:cover;\n}\n.innerDiv {\n    width: 50%;\n    background-color: rgba(255, 255, 255, 0.86);\n    text-align: center;\n    border-radius:10px;\n    padding:20px;\n}\n", ""]);
 
 // exports
 
