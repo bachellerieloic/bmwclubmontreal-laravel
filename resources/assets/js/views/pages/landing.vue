@@ -61,6 +61,7 @@
 
     .slider-container {
         min-height: 600px;
+        max-width: 100vw;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -73,5 +74,12 @@
         text-align: center;
         border-radius:10px;
         padding:20px;
+    }
+
+    @media (max-width: 768px) {
+
+        .slider-container {
+            min-height:400px;
+        }
     }
 </style>
