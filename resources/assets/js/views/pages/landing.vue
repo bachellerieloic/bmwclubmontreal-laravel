@@ -1,54 +1,51 @@
 <template>
-    <div class="">
-        <div id="landingPageCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div id="img1" class="carousel-item active">
-                    <div class="innerDiv py-5 m-auto">
-                        <h1 class="mt-2 text-dark">Sorties Organisées BMW</h1>
-                        <p class="mb-2 text-dark font-weight-bold">Un club qui partage les mêmes passions du voyage et de la moto</p>
+    <div>
+        <Carousel :autoplay="true" perPage="1">
+                <Slide>
+                    <div id="img1" class="slider-container">
+                        <div class="innerDiv">
+                            <h1 class="mt-2 text-dark">Sorties Organisées BMW</h1>
+                            <p class="mb-2 text-dark font-weight-bold">Un club de motards et de voyageurs</p>
+                        </div>
                     </div>
-                </div>
-                <div id="img2" class="carousel-item">
-                    <div class="innerDiv py-5 m-auto">
-                        <h1 class="mt-2 text-dark">Plusieurs pays</h1>
-                        <p class="mb-2 text-dark font-weight-bold">Le club part souvent aux États-unis, et organise des sorties au Mexique </p>
+                </Slide>
+                <Slide>
+                    <div id="img2" class="slider-container">
+                        <div class="innerDiv alt">
+                            <h1 class="mt-2 text-dark">Plusieurs pays</h1>
+                            <p class="mb-2 text-dark font-weight-bold">Le club part souvent aux États-unis, et organise des sorties au Mexique </p>
+                        </div>
                     </div>
-                </div>
-                <div id="img3" class="carousel-item">
-                    <div class="innerDiv py-5 m-auto">
-                        <h1 class="mt-2 text-dark">Sorties Organisées BMW</h1>
-                        <p class="mb-2 text-dark font-weight-bold">Un club qui partage la passion de la moto et du voyagesà</p>
+                </Slide>
+                <Slide>
+                    <div id="img3" class="slider-container">
+                        <div class="innerDiv">
+                            <h1 class="mt-2 text-dark">Visites</h1>
+                            <p class="mb-2 text-dark font-weight-bold">Nos sorties incluent des visites intéressantes</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </Slide>
+        </Carousel>
         <div class="text-center mt-4">
             <h1 class="text-white">À Propos du club</h1>
-            <p class="text-white p-2">
-                Le Club BMW Montréal accueille les amoureux de voyages.
+            <p class="text-white p-2 w-md-50 w-100 m-auto">
+                Le Club BMW Montréal accueille les amoureux de voyages.<br>
                 Chaque année, le groupe organise de nombreuses sorties, le tout dans une ambiance amicale et chaleureuse.
             </p>
         </div>
-
     </div>
 </template>
 
 <script>
     import Login from '../auth/login';
     import Register from '../auth/register';
-
+    import { Carousel, Slide } from 'vue-carousel';
 
     export default {
-        components : { Login, Register },
+        components : { Login, Register, Carousel, Slide },
     }
 </script>
 <style>
-    #landingPageCarousel .carousel-item {
-        background-size: cover;
-        min-height:500px;
-        background-position-y: center;
-    }
-
     #img1  {
         background-image:url("/images/banners/long-lake-1.jpg");
     }
@@ -60,18 +57,19 @@
 
     #img3 {
         background-image: url("/images/banners/ottawa.jpg");
-        background-position: end;
+    }
+
+    .slider-container {
+        min-height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size:cover;
     }
 
     .innerDiv {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         width: 50%;
-        align-self:center;
         background-color: rgba(255, 255, 255, 0.86);
         text-align: center;
-        margin-top:50%;
     }
 </style>
