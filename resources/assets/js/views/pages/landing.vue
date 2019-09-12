@@ -86,6 +86,7 @@
         }
 
         .innerDiv {
+            width: 75%;
             padding: 10px;
         }
     }
