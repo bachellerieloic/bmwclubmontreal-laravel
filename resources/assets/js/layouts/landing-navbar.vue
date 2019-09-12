@@ -7,10 +7,10 @@
             <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
                 <div class="navbar-collapse-header">
                     <div class="row">
-                        <div class="col-6 collapse-brand">
+                        <div class="col-10 collapse-brand">
                             <h4 class="mb-0">BMW CLUB MONTREAL</h4>
                         </div>
-                        <div class="col-6 collapse-close">
+                        <div class="col-2 collapse-close">
                             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                                 <span></span>
                                 <span></span>

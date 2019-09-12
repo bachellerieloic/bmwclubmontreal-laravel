@@ -24539,11 +24539,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "navbar-collapse-header" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-6 collapse-brand" }, [
+        _c("div", { staticClass: "col-10 collapse-brand" }, [
           _c("h4", { staticClass: "mb-0" }, [_vm._v("BMW CLUB MONTREAL")])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-6 collapse-close" }, [
+        _c("div", { staticClass: "col-2 collapse-close" }, [
           _c(
             "button",
             {
@@ -24783,7 +24783,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n#img1  {\n    background-image:url(\"/images/banners/long-lake-1.jpg\");\n}\n#img2 {\n    background-image:url(\"/images/banners/long-lake-2.jpg\");\n}\n#img3 {\n    background-image: url(\"/images/banners/ottawa.jpg\");\n}\n.slider-container {\n    min-height: 600px;\n    max-width: 99vw;\n    margin-left:2px;\n    margin-right:2px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    background-size:cover;\n}\n.innerDiv {\n    width: 50%;\n    background-color: rgba(255, 255, 255, 0.86);\n    text-align: center;\n    border-radius:10px;\n    padding:20px;\n}\n@media (max-width: 768px) {\n.slider-container {\n        min-height:300px;\n        border-radius:5px;\n}\n.innerDiv {\n        padding: 10px;\n}\n}\n", ""]);
+exports.push([module.i, "\n#img1  {\n    background-image:url(\"/images/banners/long-lake-1.jpg\");\n}\n#img2 {\n    background-image:url(\"/images/banners/long-lake-2.jpg\");\n}\n#img3 {\n    background-image: url(\"/images/banners/ottawa.jpg\");\n}\n.slider-container {\n    min-height: 600px;\n    max-width: 99vw;\n    margin-left:2px;\n    margin-right:2px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    background-size:cover;\n}\n.innerDiv {\n    width: 50%;\n    background-color: rgba(255, 255, 255, 0.86);\n    text-align: center;\n    border-radius:10px;\n    padding:20px;\n}\n@media (max-width: 768px) {\n.slider-container {\n        min-height:300px;\n        border-radius:5px;\n}\n.innerDiv {\n        width: 75%;\n        padding: 10px;\n}\n}\n", ""]);
 
 // exports
 
