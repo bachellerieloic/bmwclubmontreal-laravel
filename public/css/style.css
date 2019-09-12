@@ -5848,9 +5848,11 @@ html {
 #container {
   display: grid;
   grid-template-areas: "nav" "content" "footer";
-  grid-template-columns: 1fr;
+  grid-template-columns: 100vw;
   grid-template-rows: auto 1fr 0.25fr;
   min-height: 100vh;
+  min-width: 100vw;
+  overflow-y: hidden;
 }
 
 header {
