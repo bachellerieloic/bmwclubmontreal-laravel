@@ -5852,7 +5852,7 @@ html {
   grid-template-rows: auto 1fr 0.25fr;
   min-height: 100vh;
   min-width: 100vw;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 header {
