@@ -9,6 +9,7 @@ require('./bootstrap');
 import store from './store'
 import router from './routes'
 import vuetify from './vuetify'
+import i18n from './i18n'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -20,5 +21,6 @@ const app = new Vue({
     el: '#root',
     store,
     router,
-    vuetify
+    vuetify,
+    i18n
 });

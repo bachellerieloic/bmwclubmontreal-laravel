@@ -24,18 +24,25 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <router-link to="/home" class="nav-link">
-                                <span class="nav-link-inner--text">Accueil</span>
+                                <span class="nav-link-inner--text">{{ $t('menu.home')}}</span>
                             </router-link>
                         </li>
                         <li class="nav-item">
                             <router-link to="/login" class="nav-link">
-                                <span class="nav-link-inner--text">Se Connecter</span>
+                                <span class="nav-link-inner--text">{{ $t('menu.login')}}</span>
                             </router-link>
                         </li>
                         <li class="nav-item">
                             <router-link to="/register" class="nav-link">
-                                <span class="nav-link-inner--text">S'inscrire</span>
+                                <span class="nav-link-inner--text">{{ $t('menu.register')}}</span>
                             </router-link>
+                        </li>
+
+                        <li class="nav-item d-lg-none" v-for="(lang, i) in langs" v-if="$i18n.locale !== lang" >
+                            <a class="nav-link" @click="setLocale(lang)">
+                                <span class="nav-link-inner--text">{{ lang.toUpperCase() }}</span>
+                                <img :src="'/images/lang/' + lang + '.png'" width="20px" class="pb-1">
+                            </a>
                         </li>
                     </ul>
                     <hr class="d-lg-none" />
@@ -51,13 +58,24 @@
                 </div>
                 <div class="navbar-brand d-lg-none d-none">BMW Club Montreal</div>
             </div>
-
+        <a class="nav-link lang-switch d-none d-block" v-for="(lang, i) in langs" v-if="$i18n.locale !== lang"  @click="setLocale(lang)">
+            <span class="nav-link-inner--text">{{ lang.toUpperCase() }}</span>
+            <img :src="'/images/lang/' + lang + '.png'" width="20px" class="pb-1">
+        </a>
     </nav>
 </template>
 <script>
     export default {
-        name: 'LandingNavbar',
-
+        name: 'Navbar',
+        data () {
+            return { langs: ['fr', 'en'] }
+        },
+        methods: {
+          setLocale(locale) {
+              console.log(locale);
+              this.$i18n.locale = locale;
+          }
+        },
         watch: {
 
             $route (to, from){
@@ -70,6 +88,13 @@
 </script>
 
 <style>
+    .lang-switch {
+        right: 10px;
+        position: absolute;
+        color: white !important;
+        cursor:pointer
+    }
+
     @media (min-width: 992px) {
         li a.nav-link.router-link-exact-active.active {
             border-bottom: 1px white solid;

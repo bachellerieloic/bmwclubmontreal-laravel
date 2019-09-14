@@ -1,43 +1,40 @@
 <template>
     <div>
-        <div id="fb-root"></div>
-
-        <Carousel :autoplay="true" perPage="1">
+        <Carousel :autoplay="true" :perPage="1">
                 <Slide>
                     <div id="img1" class="slider-container">
                         <div class="innerDiv">
-                            <h1 class="mt-2 text-dark">Sorties Organisées BMW</h1>
-                            <p class="mb-2 text-dark font-weight-bold">Un club de motards et de voyageurs</p>
+                            <h1 class="mt-2 text-dark"> {{ $t('content.banner1title')}} </h1>
+                            <p class="mb-2 text-dark font-weight-bold"> {{ $t('content.banner1content')}} </p>
                         </div>
                     </div>
                 </Slide>
                 <Slide>
                     <div id="img2" class="slider-container">
                         <div class="innerDiv alt">
-                            <h1 class="mt-2 text-dark">Plusieurs pays</h1>
-                            <p class="mb-2 text-dark font-weight-bold">Le club part souvent aux États-unis, et organise des sorties au Mexique </p>
+                            <h1 class="mt-2 text-dark">{{ $t('content.banner2title')}}</h1>
+                            <p class="mb-2 text-dark font-weight-bold">{{ $t('content.banner2content')}}</p>
                         </div>
                     </div>
                 </Slide>
                 <Slide>
                     <div id="img3" class="slider-container">
                         <div class="innerDiv">
-                            <h1 class="mt-2 text-dark">Visites</h1>
-                            <p class="mb-2 text-dark font-weight-bold">Nos sorties incluent des visites intéressantes</p>
+                            <h1 class="mt-2 text-dark"> {{ $t('content.banner3title')}} </h1>
+                            <p class="mb-2 text-dark font-weight-bold"> {{ $t('content.banner3content')}} </p>
                         </div>
                     </div>
                 </Slide>
         </Carousel>
 
         <div class="text-center mt-4">
-            <h1 class="text-white">À Propos du club</h1>
-            <p class="text-white p-2 w-md-50 w-100 m-auto">
-                Le Club BMW Montréal accueille les amoureux de voyages.<br>
-                Chaque année, le groupe organise de nombreuses sorties, le tout dans une ambiance amicale et chaleureuse.
-            </p>
+            <h1 class="text-white">{{ $t('content.about') }}</h1>
+            <div class="row">
+                <div class="col-10 col-lg-6 mx-auto">
+                    <p class="text-white p-2 w-md-50 w-100 m-auto">{{ $t('content.aboutText') }}</p>
+                </div>
+            </div>
         </div>
-        <div class="fb-group" data-href="https://www.facebook.com/groups/332206660458879/"
-             data-width="600" data-show-social-context="true" data-show-metadata="false"></div>
 
     </div>
 </template>
@@ -68,7 +65,7 @@
     }
 
     .slider-container {
-        min-height: 600px;
+        min-height: 500px;
         max-width: 100vw;
         margin-left:0;
         margin-right:0;
@@ -76,10 +73,11 @@
         justify-content: center;
         align-items: center;
         background-size:cover;
+        background-position-y: center;
     }
 
     .innerDiv {
-        width: 50%;
+        width: 30%;
         background-color: rgba(255, 255, 255, 0.86);
         text-align: center;
         padding:20px;
