@@ -43047,7 +43047,7 @@ var messages = {
             banner1title: 'BMW Organized Trips',
             banner1content: 'A club of bikers and travellers',
             banner2title: 'Not only in Canada',
-            banner2content: 'The club very often goes to the US, and arranges trips to Mexico',
+            banner2content: 'The club goes to the US very often, and arranges trips to Mexico',
             banner3title: 'Visits',
             banner3content: 'Our trips usually include interesting visits'
 
