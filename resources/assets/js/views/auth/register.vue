@@ -1,9 +1,10 @@
 <template>
     <div class="row justify-content-center">
-        <div class="col-10 col-lg-5 col-md-7">
+        <div class="col-10 col-md-5 col-lg-4 col-xl-3 pt-0">
             <div class="card border mb-0">
                 <img src="/images/logo-bmw.png" width="250" class="d-block mx-auto"/>
-                <div class="card-body px-lg-5 pb-lg-4 pt-lg-3">
+
+                <div class="card-body px-lg-5 pb-lg-2 pt-lg-3">
                     <form id="registerform" role="form" @submit.prevent="submit">
 
                         <div class="form-group">
@@ -51,7 +52,7 @@
                             </div>
                         </div>
 
-                        <div class="row my-4">
+                        <div class="row mt-4 mb-0">
                             <div class="col-12 text-center">
                                 <div class="custom-control custom-control-alternative custom-checkbox">
                                     <input class="custom-control-input" id="customCheckRegister" type="checkbox" v-model="registerForm.privacy_policy">
@@ -62,11 +63,12 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Créer un compte</button>
+                            <button type="submit" class="btn btn-outline-default waves-effect waves-light mt-2" v-bind:class="[isLoading ? 'loading' : '']">Créer un compte</button>
+
                         </div>
                     </form>
-                    <div class="row mt-3">
-                        <p class="col-12 text-center"><small>ou</small></p>
+                    <div class="row">
+                        <p class="col-12 text-center mb-0 pb-0"><small>ou</small></p>
                         <div class="col-12 text-center">
                             <router-link to="/login" class="text-muted text-center m-l-5"><small>Connectez-vous</small></router-link>
                         </div>
@@ -89,7 +91,8 @@
                     first_name: '',
                     last_name: '',
                     privacy_policy: false
-                }
+                },
+                isLoading: false,
             }
         },
         mounted(){

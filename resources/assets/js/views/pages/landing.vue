@@ -61,9 +61,9 @@
 
     .slider-container {
         min-height: 600px;
-        max-width: 99vw;
-        margin-left:2px;
-        margin-right:2px;
+        max-width: 100vw;
+        margin-left:0;
+        margin-right:0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -74,15 +74,12 @@
         width: 50%;
         background-color: rgba(255, 255, 255, 0.86);
         text-align: center;
-        border-radius:10px;
         padding:20px;
     }
 
     @media (max-width: 768px) {
-
         .slider-container {
             min-height:300px;
-            border-radius:5px;
         }
 
         .innerDiv {

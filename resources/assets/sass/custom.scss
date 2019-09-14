@@ -1,9 +1,9 @@
 html {
-    position: relative;
     min-height: 100%;
     background: #ffffff;
-    overflow-y: auto !important;
+
 }
+
 
 *{
     box-sizing: border-box;
@@ -12,60 +12,16 @@ html {
 }
 
 
-#root {
-    min-height: 100vh;
-}
-
-.router-anim-enter-active {
-    animation: coming 2s;
-    opacity: 0;
-}
-
-.router-anim-leave-active {
-    animation: going 1s;
-}
-
-@keyframes going {
-    from {
-        transform: translateX(0px);
-    }
-    to {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-}
-
-@keyframes coming {
-    from {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-}
-
-
 #container {
     display: grid;
-
     grid-template-areas:
             "nav"
             "content"
             "footer";
-
     grid-template-columns: 100vw;
-    grid-template-rows: auto 1fr 0.25fr;
-
+    grid-template-rows: 100px auto auto;
     min-height: 100vh;
     min-width:100vw;
-    overflow: hidden;
-}
-
-
-header {
-    grid-area: header;
 }
 
 #navbar {
@@ -78,35 +34,34 @@ header {
 }
 
 #footer {
+    padding-top:10px;
+    padding-bottom:10px;
     grid-area: footer;
     align-self: end;
+}
+
+
+@media (max-width: 992px) {
+    .navbar-spread {
+        width:100%;
+    }
 }
 
 
 @media (max-width: 768px) {
     .container {
         grid-template-areas:
-                "header"
                 "nav"
                 "content"
-                "side"
                 "footer";
-
         grid-template-columns: 1fr;
-        grid-template-rows:
-                auto /* Header */
-                minmax(75px, auto) /* Nav */
-                1fr /* Content */
-                minmax(75px, auto) /* Sidebar */
-                auto; /* Footer */
+        grid-template-rows: auto 1fr auto;
     }
 
     nav, aside {
         margin: 0;
     }
 }
-
-
 
 
 #submit-login.loading {
@@ -132,3 +87,40 @@ header {
     margin-right: 10px;
 }
 
+
+@keyframes going {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+}
+
+@keyframes coming {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+
+
+.router-anim-enter-active {
+    animation: coming 2s;
+    opacity: 0;
+}
+
+.router-anim-leave-active {
+    animation: going 1s;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+}

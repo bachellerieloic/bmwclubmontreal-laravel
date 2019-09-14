@@ -5,10 +5,10 @@ let routes = [
     {
         path: '/',
         component: require('./layouts/landing-page'),
-        meta: { requiresGuest: true },
+        meta: { requiresGuest: false },
         children: [
             {
-                path: '/',
+                path: '/home',
                 component: require('./views/pages/landing')
             },
             {
@@ -105,19 +105,13 @@ router.beforeEach((to, from, next) => {
 
             return next()
         })
-    }
-
-    if (to.matched.some(m => m.meta.requiresGuest)){
-        return helper.check().then(response => {
-            if(response){
-                return next({ path : '/'})
-            }
-
+    } else {
+        console.log(to.path);
+        if(to.path === "/") {
+            return next({path:'/home'});
+        } else
             return next()
-        })
     }
-
-    return next()
 });
 
 export default router;
