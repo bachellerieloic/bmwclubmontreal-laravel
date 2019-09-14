@@ -24313,6 +24313,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -25190,6 +25197,28 @@ var render = function() {
               _vm._v(_vm._s(_vm.$t("content.aboutText")))
             ])
           ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container-facebook" }, [
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-lg btn-social btn-facebook",
+              attrs: {
+                href: "https://www.facebook.com/groups/332206660458879/",
+                target: "_blank"
+              }
+            },
+            [
+              _c("i", { staticClass: "fa fa-facebook fa-fw mr-2" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-1" }, [
+                _vm._v(_vm._s(_vm.$t("content.facebook")))
+              ]),
+              _vm._v(" "),
+              _c("i", { staticClass: "fa fa-external-link" })
+            ]
+          )
         ])
       ])
     ],
@@ -42992,6 +43021,8 @@ var messages = {
         content: {
             about: 'À propos du club',
             aboutText: 'Le Club BMW Montréal accueille les amoureux de voyages et de motos. ' + 'Chaque année, le club organise de nombreuses sorties et évènements, le tout dans une ambiance amicale et détendue.',
+            facebook: 'Page Facebook',
+
             banner1title: 'Sorties Organisées BMW',
             banner1content: 'Un club de motards et de voyageurs',
             banner2title: 'Pas seulement au Canada !',
@@ -43011,6 +43042,8 @@ var messages = {
         content: {
             about: 'About the club',
             aboutText: 'The BMW Club Montreal welcomes travel and motorbikes addicts. ' + 'Each year, the club organises many trips and events, all in a friendly and relaxed atmosphere',
+            facebook: 'Facebook Page',
+
             banner1title: 'BMW Organized Trips',
             banner1content: 'A club of bikers and travellers',
             banner2title: 'Not only in Canada',
@@ -43018,8 +43051,7 @@ var messages = {
             banner3title: 'Visits',
             banner3content: 'Our trips usually include interesting visits'
 
-        },
-        testing: 'i am testing'
+        }
     }
 };
 

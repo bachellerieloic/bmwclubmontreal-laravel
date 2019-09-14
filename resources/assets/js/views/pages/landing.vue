@@ -34,6 +34,13 @@
                     <p class="text-white p-2 w-md-50 w-100 m-auto">{{ $t('content.aboutText') }}</p>
                 </div>
             </div>
+            <div class="container-facebook">
+                <a class="btn btn-lg btn-social btn-facebook" href="https://www.facebook.com/groups/332206660458879/" target="_blank">
+                    <i class="fa fa-facebook fa-fw mr-2"></i>
+                    <span class="ml-1">{{$t('content.facebook')}}</span>
+                    <i class="fa fa-external-link"></i>
+                </a>
+            </div>
         </div>
 
     </div>
