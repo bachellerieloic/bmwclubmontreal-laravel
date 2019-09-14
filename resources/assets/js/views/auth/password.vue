@@ -21,7 +21,7 @@
                     </div>
                 </form>
             </div>
-            <guest-footer></guest-footer>
+            <Footer></Footer>
           </div>
         </div>
 
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-    import GuestFooter from '../../layouts/guest-footer.vue'
+    import Footer from '../../layouts/landing/footer.vue'
 
     export default {
         data() {
@@ -40,7 +40,7 @@
             }
         },
         components: {
-            GuestFooter
+            Footer
         },
         mounted(){
         },

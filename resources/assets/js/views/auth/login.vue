@@ -4,7 +4,8 @@
             <div class="card border-0 mb-0">
                 <img src="/images/logo-bmw.png" width="250" class="d-block mx-auto"/>
                 <div class="card-body px-lg-5 py-lg-5">
-                        <form role="form" id="loginform" @submit.prevent="submit">
+                    <form role="form" id="loginform" @submit.prevent="submit">
+
                         <div class="form-group mb-3">
                             <div class="input-group input-group-merge input-group-alternative">
                                 <div class="input-group-prepend">
@@ -13,6 +14,7 @@
                                 <input class="form-control" placeholder="Courriel" type="email" name="email" v-model="loginForm.email">
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="input-group input-group-merge input-group-alternative">
                                 <div class="input-group-prepend">
@@ -22,15 +24,18 @@
 
                             </div>
                         </div>
+
                         <div class="custom-control custom-control-alternative custom-checkbox">
                             <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
                             <label class="custom-control-label" for=" customCheckLogin">
                                 <span class="text-muted">Remember me</span>
                             </label>
                         </div>
+
                         <div class="text-center">
                             <button id="submit-login" v-bind:class="[isLoading ? 'loading' : '', 'btn btn-outline-default waves-effect waves-light mt-4 mb-2']" type="submit">Se Connecter</button>
                         </div>
+
                     </form>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import helper from './services/helper'
 let routes = [
     {
         path: '/',
-        component: require('./layouts/landing-page'),
+        component: require('./layouts/landing/landing'),
         meta: { requiresGuest: false },
         children: [
             {

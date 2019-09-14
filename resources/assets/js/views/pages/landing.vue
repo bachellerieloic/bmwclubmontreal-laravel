@@ -1,5 +1,7 @@
 <template>
     <div>
+        <div id="fb-root"></div>
+
         <Carousel :autoplay="true" perPage="1">
                 <Slide>
                     <div id="img1" class="slider-container">
@@ -26,6 +28,7 @@
                     </div>
                 </Slide>
         </Carousel>
+
         <div class="text-center mt-4">
             <h1 class="text-white">À Propos du club</h1>
             <p class="text-white p-2 w-md-50 w-100 m-auto">
@@ -33,6 +36,9 @@
                 Chaque année, le groupe organise de nombreuses sorties, le tout dans une ambiance amicale et chaleureuse.
             </p>
         </div>
+        <div class="fb-group" data-href="https://www.facebook.com/groups/332206660458879/"
+             data-width="600" data-show-social-context="true" data-show-metadata="false"></div>
+
     </div>
 </template>
 
@@ -41,10 +47,12 @@
     import Register from '../auth/register';
     import { Carousel, Slide } from 'vue-carousel';
 
+
     export default {
         components : { Login, Register, Carousel, Slide },
     }
 </script>
+
 <style>
     #img1  {
         background-image:url("/images/banners/long-lake-1.jpg");

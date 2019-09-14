@@ -51,17 +51,6 @@
                                 <input class="form-control" name="password_confirmation" placeholder="Mot de passe (confirmation)" type="password" v-model="registerForm.password_confirmation">
                             </div>
                         </div>
-
-                        <div class="row mt-4 mb-0">
-                            <div class="col-12 text-center">
-                                <div class="custom-control custom-control-alternative custom-checkbox">
-                                    <input class="custom-control-input" id="customCheckRegister" type="checkbox" v-model="registerForm.privacy_policy">
-                                    <label class="custom-control-label" for="customCheckRegister">
-                                        <span class="text-muted">J'ai lu et j'accepte la <a href="#!">politique de confidentialité</a></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-outline-default waves-effect waves-light mt-2" v-bind:class="[isLoading ? 'loading' : '']">Créer un compte</button>
 
@@ -99,11 +88,6 @@
         },
         methods: {
             submit(e){
-                if(!this.registerForm.privacy_policy) {
-                    helper.notify('Merci d\'accepter la politique de confidentialité' , 'warning');
-                    return false;
-                }
-
                 axios.post('/api/auth/register', this.registerForm).then(response =>  {
                     helper.notify(response.data.message, 'success');
                     this.$router.push('/login');
