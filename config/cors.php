@@ -10,10 +10,9 @@ return [
     | to accept any value.
     |
     */
-    'supportsCredentials' => false,
-    'allowedOrigins' => ['*'],
-    'allowedHeaders' => ['Content-Type', 'X-Requested-With'],
-    'allowedMethods' => ['*'], // ex: ['GET', 'POST', 'PUT',  'DELETE']
-    'exposedHeaders' => [],
-    'maxAge' => 0,
+
+    'allow_origins' => [
+        'http://localhost:8080',
+        'https://quasar-mtl.netlify.com',
+    ],
 ];
