@@ -38,8 +38,7 @@ Route::group(['middleware' => ['jwt.auth']], function () {
 
     Route::get('/configuration/fetch','ConfigurationController@index');
     Route::post('/configuration','ConfigurationController@store');
-
-    Route::get('/user','UserController@index');
+    Route::post('/user','UserController@index');
     Route::post('/user/change-password','AuthController@changePassword');
     Route::post('/user/update-profile','UserController@updateProfile');
     Route::post('/user/update-avatar','UserController@updateAvatar');
