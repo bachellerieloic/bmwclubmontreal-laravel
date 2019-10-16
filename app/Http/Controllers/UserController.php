@@ -15,6 +15,7 @@ class UserController extends Controller
 
 	public function index(){
 		$users = \App\User::with('profile')->get();
+        return response()->json($users);
 
 		$usersArray = [];
 
