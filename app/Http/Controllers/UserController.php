@@ -31,7 +31,7 @@ class UserController extends Controller
             ];
         }
 
-        return response()->json($usersArray)->header('Content-Type', 'application/json');
+        return response()->json($usersArray);
 	}
 
     public function updateProfile(Request $request){
