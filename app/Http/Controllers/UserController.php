@@ -31,7 +31,7 @@ class UserController extends Controller
             ];
         }
 
-        return response()->json($usersArray);
+        return response()->json(json_encode($usersArray));
 	}
 
     public function updateProfile(Request $request){
