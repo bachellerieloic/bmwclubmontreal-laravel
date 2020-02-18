@@ -1,4 +1,4 @@
-[Click here to visit demo of Laravel 5.7 Vue.js Starter Kit](https://laravue.scriptmint.com)
+[Bmwclubmontreal.com](http://bmwclubmontreal.com)
 
 # BMW Club Montreal
 
